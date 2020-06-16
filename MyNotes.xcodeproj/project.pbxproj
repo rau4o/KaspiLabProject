@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3B95B30DBF40912142246E18 /* Pods_MyNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEDBB6B8D9B82176FE7729E5 /* Pods_MyNotes.framework */; };
+		AE0118A3249926340080A333 /* MainRegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0118A2249926340080A333 /* MainRegistrationController.swift */; };
+		AE0118A6249935F80080A333 /* TableNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0118A5249935F80080A333 /* TableNotesController.swift */; };
 		AE4A324D2483DD8E003A355F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4A324C2483DD8E003A355F /* AppDelegate.swift */; };
 		AE4A324F2483DD8E003A355F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4A324E2483DD8E003A355F /* SceneDelegate.swift */; };
 		AE4A32542483DD8E003A355F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE4A32522483DD8E003A355F /* Main.storyboard */; };
@@ -29,10 +31,14 @@
 		AE5A99CA2497B7C30050D331 /* SFProDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AE5A99C32497B7C30050D331 /* SFProDisplay-Bold.otf */; };
 		AE5A99CB2497B7C30050D331 /* SFProText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AE5A99C42497B7C30050D331 /* SFProText-Semibold.otf */; };
 		AE5A99CD2497C11A0050D331 /* Device+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99CC2497C11A0050D331 /* Device+Constants.swift */; };
+		AEEED9B62497D741002BC43F /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEED9B52497D741002BC43F /* RegistrationController.swift */; };
+		AEEED9B82497D806002BC43F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEED9B72497D806002BC43F /* RegistrationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A1632A37C808BC4048EBAD82 /* Pods-MyNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotes.release.xcconfig"; path = "Target Support Files/Pods-MyNotes/Pods-MyNotes.release.xcconfig"; sourceTree = "<group>"; };
+		AE0118A2249926340080A333 /* MainRegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRegistrationController.swift; sourceTree = "<group>"; };
+		AE0118A5249935F80080A333 /* TableNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableNotesController.swift; sourceTree = "<group>"; };
 		AE4A32492483DD8E003A355F /* MyNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4A324C2483DD8E003A355F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE4A324E2483DD8E003A355F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +62,8 @@
 		AE5A99C32497B7C30050D331 /* SFProDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.otf"; sourceTree = "<group>"; };
 		AE5A99C42497B7C30050D331 /* SFProText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Semibold.otf"; sourceTree = "<group>"; };
 		AE5A99CC2497C11A0050D331 /* Device+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+Constants.swift"; sourceTree = "<group>"; };
+		AEEED9B52497D741002BC43F /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		AEEED9B72497D806002BC43F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		C3555A6C4B9DDF4B987B643B /* Pods-MyNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotes.debug.xcconfig"; path = "Target Support Files/Pods-MyNotes/Pods-MyNotes.debug.xcconfig"; sourceTree = "<group>"; };
 		EEDBB6B8D9B82176FE7729E5 /* Pods_MyNotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyNotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -87,6 +95,14 @@
 				A1632A37C808BC4048EBAD82 /* Pods-MyNotes.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		AE0118A4249935E60080A333 /* TableNotesPage */ = {
+			isa = PBXGroup;
+			children = (
+				AE0118A5249935F80080A333 /* TableNotesController.swift */,
+			);
+			path = TableNotesPage;
 			sourceTree = "<group>";
 		};
 		AE4A32402483DD8E003A355F = {
@@ -176,6 +192,9 @@
 		AE4A32662483DE92003A355F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AE0118A4249935E60080A333 /* TableNotesPage */,
+				AE0118A2249926340080A333 /* MainRegistrationController.swift */,
+				AEEED9B42497D70E002BC43F /* RegistrationPage */,
 				AE5A99AC2497AD370050D331 /* LoginPage */,
 				AE4A32692483DED3003A355F /* WelcomeController.swift */,
 			);
@@ -238,6 +257,15 @@
 				AE5A99BC2497B6AE0050D331 /* Fonts */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		AEEED9B42497D70E002BC43F /* RegistrationPage */ = {
+			isa = PBXGroup;
+			children = (
+				AEEED9B52497D741002BC43F /* RegistrationController.swift */,
+				AEEED9B72497D806002BC43F /* RegistrationView.swift */,
+			);
+			path = RegistrationPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,14 +392,18 @@
 			files = (
 				AE5A99B62497B07B0050D331 /* UITextField + Extension .swift in Sources */,
 				AE4A326A2483DED3003A355F /* WelcomeController.swift in Sources */,
+				AE0118A3249926340080A333 /* MainRegistrationController.swift in Sources */,
 				AE5A99AE2497AD6C0050D331 /* LoginController.swift in Sources */,
+				AEEED9B82497D806002BC43F /* RegistrationView.swift in Sources */,
 				AE4A324D2483DD8E003A355F /* AppDelegate.swift in Sources */,
 				AE5A99B22497ADF00050D331 /* BaseView.swift in Sources */,
 				AE5A99B42497AEA80050D331 /* UIContainer + Extension.swift in Sources */,
 				AE5A99B02497ADB00050D331 /* LoginView.swift in Sources */,
 				AE4A324F2483DD8E003A355F /* SceneDelegate.swift in Sources */,
+				AE0118A6249935F80080A333 /* TableNotesController.swift in Sources */,
 				AE5A99CD2497C11A0050D331 /* Device+Constants.swift in Sources */,
 				AE5A99B92497B4A70050D331 /* Constants.swift in Sources */,
+				AEEED9B62497D741002BC43F /* RegistrationController.swift in Sources */,
 				AE5A99BB2497B4DB0050D331 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

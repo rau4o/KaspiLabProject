@@ -1,5 +1,5 @@
 //
-//  LoginView.swift
+//  RegistrationView.swift
 //  MyNotes
 //
 //  Created by rau4o on 6/15/20.
@@ -7,47 +7,33 @@
 //
 
 import UIKit
-import SnapKit
-import TransitionButton
 
-class LoginView: BaseView {
+class RegistrationView: BaseView {
     
     // MARK: - Properties
     
-    var loginAction: (() -> Void)?
-    
     // MARK: - UI Elements
-    
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Welcome to my diary"
-        label.textColor = .white
-        label.numberOfLines = 0
-        label.font = UIFont(name: "SFProDisplay-Medium", size: 40)
-        return label
-    }()
-    
-    private let preTitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Start your entries here"
-        label.textColor = .white
-        label.numberOfLines = 0
-        label.font = UIFont(name: "SFProDisplay-Medium", size: 27)
-        return label
-    }()
-    
-    private let logoImage: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "notebook")
-        image.contentMode = .scaleAspectFit
-        return image
-    }()
     
     private let backgroundImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "backImage")
         image.contentMode = .scaleAspectFill
         return image
+    }()
+    
+    private lazy var nameContainerView: UIView = {
+        let view = UIView().inputContrainerView(image: UIImage(named: "student")!,
+                                                textField: nameTextField)
+        view.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        return view
+    }()
+    
+    let nameTextField: UITextField = {
+        let tf = UITextField().textField(withPlaceholder: "Name", isSecureTextEntry: false)
+        tf.attributedPlaceholder = NSAttributedString(string: "Name",
+                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "SFProDisplay-Medium", size: 20)!])
+        tf.tintColor = .white
+        return tf
     }()
     
     private lazy var emailContainerView: UIView = {
@@ -73,43 +59,42 @@ class LoginView: BaseView {
     }()
     
     let passwordTextField: UITextField = {
-        let tf = UITextField().textField(withPlaceholder: "Password", isSecureTextEntry: true)
+        let tf = UITextField().textField(withPlaceholder: "Password", isSecureTextEntry: false)
         tf.attributedPlaceholder = NSAttributedString(string: "Password",
-        attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "SFProDisplay-Medium", size: 20)!])
+                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "SFProDisplay-Medium", size: 20)!])
         tf.tintColor = .white
         return tf
     }()
     
-    let loginButton: TransitionButton = {
-        let button = TransitionButton()
-        button.backgroundColor = .mainBlue
-        button.setTitle("Log in", for: .normal)
-        button.layer.cornerRadius = 20
-        button.tintColor = .white
-        button.titleLabel?.font = UIFont(name: "SFProDisplay-Bold", size: 20)
-        button.addTarget(self, action: #selector(handleLoginButton(_:)), for: .touchUpInside)
-        return button
-    }()
-    
     lazy private var stackView: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView])
+        let stack = UIStackView(arrangedSubviews: [nameContainerView, emailContainerView, passwordContainerView])
         stack.distribution = .fillEqually
         stack.axis = .vertical
         stack.spacing = 10
         return stack
     }()
     
-    // ConfigureUI
-
+    private let registrationButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .mainBlue
+        button.setTitle("Create account", for: .normal)
+        button.layer.cornerRadius = 20
+        button.tintColor = .white
+        button.titleLabel?.font = UIFont(name: "SFProDisplay-Bold", size: 20)
+        return button
+    }()
+    
+    // MARK: - Setup Views
+    
     override func setupViews() {
-        backgroundColor = .mainBlue
         layoutUI()
+        backgroundColor = .mainBlue
     }
     
     // MARK: - Helper function
     
     private func layoutUI() {
-        [backgroundImage, loginButton, stackView].forEach {
+        [backgroundImage, stackView, registrationButton].forEach {
             addSubview($0)
         }
         
@@ -118,22 +103,15 @@ class LoginView: BaseView {
             make.height.equalToSuperview().dividedBy(2)
         }
         
-        loginButton.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview().inset(20)
-            make.bottom.equalToSuperview().inset(40)
-            make.height.equalTo(60)
-        }
-        
         stackView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().inset(40)
             make.left.right.equalToSuperview().inset(30)
         }
-    }
-    
-    // MARK: - Selectors
-    
-    @objc private func handleLoginButton(_ sender: UIButton) {
-        print(123)
-        loginAction?()
+        
+        registrationButton.snp.makeConstraints { (make) in
+            make.bottom.equalToSuperview().inset(40)
+            make.height.equalTo(60)
+            make.left.right.equalToSuperview().inset(20)
+        }
     }
 }

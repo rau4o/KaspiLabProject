@@ -12,6 +12,8 @@ class LoginController: UIViewController {
     
     // MARK: - Properties
     
+    let vc = TableNotesController()
+    
     // MARK: - UI Elements
     
     var loginView = LoginView()
@@ -21,6 +23,7 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutUI()
+        activateClosure()
     }
     
     // MARK: - Helper fuction
@@ -30,6 +33,26 @@ class LoginController: UIViewController {
         
         loginView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
+        }
+    }
+    
+    private func activateClosure() {
+        loginView.loginAction = { [weak self] in
+            guard let self = self else {return}
+            self.loginView.loginButton.startAnimation()
+            let qualityOfServiceClass = DispatchQoS.QoSClass.background
+            let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
+            backgroundQueue.async(execute: {
+                sleep(1)
+                DispatchQueue.main.async(execute: { () -> Void in
+                    self.loginView.loginButton.stopAnimation(animationStyle: .expand, completion: {
+//                        self.changeVC(vc: SceneDelegate.shared.getConfiguredController())
+                        self.vc.modalPresentationStyle = .fullScreen
+                        self.vc.modalTransitionStyle = .crossDissolve
+                        self.present(self.vc, animated: true, completion: nil)
+                    })
+                })
+            })
         }
     }
 }

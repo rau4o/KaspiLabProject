@@ -45,7 +45,8 @@ class LoginController: UIViewController {
             backgroundQueue.async(execute: {
                 sleep(1)
                 DispatchQueue.main.async(execute: { () -> Void in
-                    self.loginView.loginButton.stopAnimation(animationStyle: .expand, completion: {
+                    self.loginView.loginButton.stopAnimation(animationStyle: .expand, completion: { [weak self] in
+                        guard let self = self else { return }
 //                        self.changeVC(vc: SceneDelegate.shared.getConfiguredController())
                         self.vc.modalPresentationStyle = .fullScreen
                         self.vc.modalTransitionStyle = .crossDissolve

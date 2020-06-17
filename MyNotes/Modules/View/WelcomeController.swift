@@ -12,7 +12,7 @@ class WelcomeController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .orange
     }
 }
 
@@ -33,3 +33,4 @@ class WelcomeController: UIViewController {
 //}
 //let myPassword = generatePassword(passwordLength: 10)
 //print("Secure password: \(myPassword)")
+

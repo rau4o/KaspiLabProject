@@ -31,6 +31,14 @@
 		AE5A99CA2497B7C30050D331 /* SFProDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AE5A99C32497B7C30050D331 /* SFProDisplay-Bold.otf */; };
 		AE5A99CB2497B7C30050D331 /* SFProText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AE5A99C42497B7C30050D331 /* SFProText-Semibold.otf */; };
 		AE5A99CD2497C11A0050D331 /* Device+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99CC2497C11A0050D331 /* Device+Constants.swift */; };
+		AEE312E3249A6ED400804DAB /* CircleBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312E2249A6ED400804DAB /* CircleBarController.swift */; };
+		AEE312E6249A6EFD00804DAB /* CircleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312E5249A6EFD00804DAB /* CircleBar.swift */; };
+		AEE312E8249A711400804DAB /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312E7249A711400804DAB /* MainTabbarController.swift */; };
+		AEE312EB249A72C800804DAB /* CollectionNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312EA249A72C800804DAB /* CollectionNotesController.swift */; };
+		AEE312ED249A73D600804DAB /* TableNotesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312EC249A73D600804DAB /* TableNotesViewCell.swift */; };
+		AEE312EF249A7E8800804DAB /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312EE249A7E8800804DAB /* UILabel + Extension.swift */; };
+		AEE312F1249A7F3900804DAB /* UIFonts + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312F0249A7F3900804DAB /* UIFonts + Extension.swift */; };
+		AEE312F4249A818500804DAB /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312F3249A818500804DAB /* HeaderView.swift */; };
 		AEEED9B62497D741002BC43F /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEED9B52497D741002BC43F /* RegistrationController.swift */; };
 		AEEED9B82497D806002BC43F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEED9B72497D806002BC43F /* RegistrationView.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +70,14 @@
 		AE5A99C32497B7C30050D331 /* SFProDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.otf"; sourceTree = "<group>"; };
 		AE5A99C42497B7C30050D331 /* SFProText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Semibold.otf"; sourceTree = "<group>"; };
 		AE5A99CC2497C11A0050D331 /* Device+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+Constants.swift"; sourceTree = "<group>"; };
+		AEE312E2249A6ED400804DAB /* CircleBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleBarController.swift; sourceTree = "<group>"; };
+		AEE312E5249A6EFD00804DAB /* CircleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleBar.swift; sourceTree = "<group>"; };
+		AEE312E7249A711400804DAB /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
+		AEE312EA249A72C800804DAB /* CollectionNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionNotesController.swift; sourceTree = "<group>"; };
+		AEE312EC249A73D600804DAB /* TableNotesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableNotesViewCell.swift; sourceTree = "<group>"; };
+		AEE312EE249A7E8800804DAB /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
+		AEE312F0249A7F3900804DAB /* UIFonts + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFonts + Extension.swift"; sourceTree = "<group>"; };
+		AEE312F3249A818500804DAB /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		AEEED9B52497D741002BC43F /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		AEEED9B72497D806002BC43F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		C3555A6C4B9DDF4B987B643B /* Pods-MyNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotes.debug.xcconfig"; path = "Target Support Files/Pods-MyNotes/Pods-MyNotes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,7 +116,9 @@
 		AE0118A4249935E60080A333 /* TableNotesPage */ = {
 			isa = PBXGroup;
 			children = (
+				AEE312F2249A817300804DAB /* HeaderView */,
 				AE0118A5249935F80080A333 /* TableNotesController.swift */,
+				AEE312EC249A73D600804DAB /* TableNotesViewCell.swift */,
 			);
 			path = TableNotesPage;
 			sourceTree = "<group>";
@@ -159,11 +177,14 @@
 		AE4A32622483DE11003A355F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				AEE312E4249A6EE700804DAB /* Tabbar+Extension */,
 				AE5A99B12497ADF00050D331 /* BaseView.swift */,
 				AE5A99B32497AEA80050D331 /* UIContainer + Extension.swift */,
 				AE5A99B52497B07B0050D331 /* UITextField + Extension .swift */,
 				AE5A99BA2497B4DB0050D331 /* UIColor+Extension.swift */,
 				AE5A99CC2497C11A0050D331 /* Device+Constants.swift */,
+				AEE312EE249A7E8800804DAB /* UILabel + Extension.swift */,
+				AEE312F0249A7F3900804DAB /* UIFonts + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -192,11 +213,13 @@
 		AE4A32662483DE92003A355F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AEE312E9249A72AD00804DAB /* CollectionNotesPage */,
 				AE0118A4249935E60080A333 /* TableNotesPage */,
 				AE0118A2249926340080A333 /* MainRegistrationController.swift */,
 				AEEED9B42497D70E002BC43F /* RegistrationPage */,
 				AE5A99AC2497AD370050D331 /* LoginPage */,
 				AE4A32692483DED3003A355F /* WelcomeController.swift */,
+				AEE312E7249A711400804DAB /* MainTabbarController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -257,6 +280,31 @@
 				AE5A99BC2497B6AE0050D331 /* Fonts */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		AEE312E4249A6EE700804DAB /* Tabbar+Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AEE312E2249A6ED400804DAB /* CircleBarController.swift */,
+				AEE312E5249A6EFD00804DAB /* CircleBar.swift */,
+			);
+			path = "Tabbar+Extension";
+			sourceTree = "<group>";
+		};
+		AEE312E9249A72AD00804DAB /* CollectionNotesPage */ = {
+			isa = PBXGroup;
+			children = (
+				AEE312EA249A72C800804DAB /* CollectionNotesController.swift */,
+			);
+			path = CollectionNotesPage;
+			sourceTree = "<group>";
+		};
+		AEE312F2249A817300804DAB /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				AEE312F3249A818500804DAB /* HeaderView.swift */,
+			);
+			path = HeaderView;
 			sourceTree = "<group>";
 		};
 		AEEED9B42497D70E002BC43F /* RegistrationPage */ = {
@@ -393,18 +441,26 @@
 				AE5A99B62497B07B0050D331 /* UITextField + Extension .swift in Sources */,
 				AE4A326A2483DED3003A355F /* WelcomeController.swift in Sources */,
 				AE0118A3249926340080A333 /* MainRegistrationController.swift in Sources */,
+				AEE312EF249A7E8800804DAB /* UILabel + Extension.swift in Sources */,
+				AEE312ED249A73D600804DAB /* TableNotesViewCell.swift in Sources */,
+				AEE312EB249A72C800804DAB /* CollectionNotesController.swift in Sources */,
 				AE5A99AE2497AD6C0050D331 /* LoginController.swift in Sources */,
 				AEEED9B82497D806002BC43F /* RegistrationView.swift in Sources */,
 				AE4A324D2483DD8E003A355F /* AppDelegate.swift in Sources */,
 				AE5A99B22497ADF00050D331 /* BaseView.swift in Sources */,
+				AEE312F1249A7F3900804DAB /* UIFonts + Extension.swift in Sources */,
 				AE5A99B42497AEA80050D331 /* UIContainer + Extension.swift in Sources */,
+				AEE312E6249A6EFD00804DAB /* CircleBar.swift in Sources */,
 				AE5A99B02497ADB00050D331 /* LoginView.swift in Sources */,
 				AE4A324F2483DD8E003A355F /* SceneDelegate.swift in Sources */,
 				AE0118A6249935F80080A333 /* TableNotesController.swift in Sources */,
 				AE5A99CD2497C11A0050D331 /* Device+Constants.swift in Sources */,
 				AE5A99B92497B4A70050D331 /* Constants.swift in Sources */,
+				AEE312E8249A711400804DAB /* MainTabbarController.swift in Sources */,
 				AEEED9B62497D741002BC43F /* RegistrationController.swift in Sources */,
 				AE5A99BB2497B4DB0050D331 /* UIColor+Extension.swift in Sources */,
+				AEE312F4249A818500804DAB /* HeaderView.swift in Sources */,
+				AEE312E3249A6ED400804DAB /* CircleBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -40,11 +40,12 @@ class CircleBarController: UITabBarController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         let tabBar = CircleBar()
+        tabBar.backgroundColor = .mainBlue
         self.setValue(tabBar, forKey: "tabBar")
         
         self.circleView = UIView(frame: .zero)
         circleView.layer.cornerRadius = 30
-        circleView.backgroundColor = .white
+        circleView.backgroundColor = .mainBlue
         circleView.isUserInteractionEnabled = false
         
         self.circleImageView = UIImageView(frame: .zero)
@@ -54,6 +55,7 @@ class CircleBarController: UITabBarController {
         
         circleView.addSubview(circleImageView)
         self.view.addSubview(circleView)
+        view.backgroundColor = .mainBlue
         let tabWidth = self.view.bounds.width / CGFloat(self.tabBar.items?.count ?? 4)
         
         circleView.frame = CGRect(x: tabWidth / 2 - 30, y: self.tabBar.frame.origin.y - 40, width: 60, height: 60)

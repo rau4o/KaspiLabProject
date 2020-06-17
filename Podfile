@@ -11,6 +11,7 @@ target 'MyNotes' do
   pod 'AnchoredBottomSheet'
   pod 'BmoViewPager', '~> 4.2.2'
   pod 'CircleBar'
+  pod 'Toucan'
   
 
 end

@@ -93,7 +93,15 @@ class TableNotesViewCell: UITableViewCell {
         }
     }
     
-    func configureUI() {
-        
+    func configureCell(entryModel: EntryModel) {
+        DispatchQueue.main.async {
+            if let imageUrl = entryModel.pictures.first?.thumbnail() {
+                self.photoImageView.image = imageUrl
+            }
+            self.dayLabel.text = entryModel.dayPrettyString()
+            self.monthLabel.text = entryModel.monthPrettyString()
+            self.yearLabel.text = entryModel.yearPrettyString()
+            self.previewTextLabel.text = entryModel.text
+        }
     }
 }

@@ -12,11 +12,15 @@ class MainTabbarController: CircleBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let vc = TableNotesController()
-        let vc2 = WelcomeController()
-        let vc3 = CollectionNotesController()
-        
-        viewControllers = [vc, vc2, vc3]
+        configureControllers()
+    }
+    
+    private func configureControllers() {
+        let tableController = TableNotesController()
+        let collectionController = CollectionNotesController()
+        tableController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "menu"), tag: 0)
+        collectionController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "collectionMenu"), tag: 1)
+        viewControllers = [tableController, collectionController]
     }
     
 

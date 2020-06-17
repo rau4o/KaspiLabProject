@@ -39,6 +39,7 @@
 		AEE312EF249A7E8800804DAB /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312EE249A7E8800804DAB /* UILabel + Extension.swift */; };
 		AEE312F1249A7F3900804DAB /* UIFonts + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312F0249A7F3900804DAB /* UIFonts + Extension.swift */; };
 		AEE312F4249A818500804DAB /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312F3249A818500804DAB /* HeaderView.swift */; };
+		AEE312F6249A893900804DAB /* EntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312F5249A893900804DAB /* EntryModel.swift */; };
 		AEEED9B62497D741002BC43F /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEED9B52497D741002BC43F /* RegistrationController.swift */; };
 		AEEED9B82497D806002BC43F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEED9B72497D806002BC43F /* RegistrationView.swift */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,7 @@
 		AEE312EE249A7E8800804DAB /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		AEE312F0249A7F3900804DAB /* UIFonts + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFonts + Extension.swift"; sourceTree = "<group>"; };
 		AEE312F3249A818500804DAB /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		AEE312F5249A893900804DAB /* EntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryModel.swift; sourceTree = "<group>"; };
 		AEEED9B52497D741002BC43F /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		AEEED9B72497D806002BC43F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		C3555A6C4B9DDF4B987B643B /* Pods-MyNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotes.debug.xcconfig"; path = "Target Support Files/Pods-MyNotes/Pods-MyNotes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 		AE4A32672483DE97003A355F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AEE312F5249A893900804DAB /* EntryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				AEE312EF249A7E8800804DAB /* UILabel + Extension.swift in Sources */,
 				AEE312ED249A73D600804DAB /* TableNotesViewCell.swift in Sources */,
 				AEE312EB249A72C800804DAB /* CollectionNotesController.swift in Sources */,
+				AEE312F6249A893900804DAB /* EntryModel.swift in Sources */,
 				AE5A99AE2497AD6C0050D331 /* LoginController.swift in Sources */,
 				AEEED9B82497D806002BC43F /* RegistrationView.swift in Sources */,
 				AE4A324D2483DD8E003A355F /* AppDelegate.swift in Sources */,

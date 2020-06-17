@@ -12,6 +12,7 @@ target 'MyNotes' do
   pod 'BmoViewPager', '~> 4.2.2'
   pod 'CircleBar'
   pod 'Toucan'
+  pod "IQKeyboardManager" 
   
 
 end

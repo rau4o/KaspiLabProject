@@ -220,6 +220,9 @@
 		AE4A32662483DE92003A355F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AEE312FE249A915D00804DAB /* Calendar Controller */,
+				AEE312FD249A914D00804DAB /* Add Entry Controller */,
+				AEE312FC249A914200804DAB /* MapController */,
 				AEE312F9249A8B7200804DAB /* AuthorizationProcces */,
 				AEE312E9249A72AD00804DAB /* CollectionNotesPage */,
 				AE0118A4249935E60080A333 /* TableNotesPage */,
@@ -322,6 +325,27 @@
 				AEEED9B42497D70E002BC43F /* RegistrationPage */,
 			);
 			path = AuthorizationProcces;
+			sourceTree = "<group>";
+		};
+		AEE312FC249A914200804DAB /* MapController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MapController;
+			sourceTree = "<group>";
+		};
+		AEE312FD249A914D00804DAB /* Add Entry Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Add Entry Controller";
+			sourceTree = "<group>";
+		};
+		AEE312FE249A915D00804DAB /* Calendar Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Calendar Controller";
 			sourceTree = "<group>";
 		};
 		AEEED9B42497D70E002BC43F /* RegistrationPage */ = {

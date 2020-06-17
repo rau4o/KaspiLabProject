@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeaderView: UIView {
+class HeaderView: BaseView {
     
     // MARK: - Properties
     
@@ -38,14 +38,9 @@ class HeaderView: UIView {
     }()
     
     // MARK: - Init
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        layoutUI()
-    }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func setupViews() {
+        layoutUI()
     }
     
     // MARK: - Helper function

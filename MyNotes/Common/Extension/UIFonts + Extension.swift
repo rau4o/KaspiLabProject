@@ -10,7 +10,8 @@ import UIKit
 
 extension UIFont {
     static let boldSF = UIFont(name: "SFProDisplay-Bold", size: 20)!
-    static let mediumSF = UIFont(name: "SFProDisplay-Medium", size: 20)!
+    static let enormousMediumSF = UIFont(name: "SFProDisplay-Medium", size: 52)!
     static let largeMediumSF = UIFont(name: "SFProDisplay-Medium", size: 40)!
+    static let mediumSF = UIFont(name: "SFProDisplay-Medium", size: 20)!
     static let tinyMediumSF = UIFont(name: "SFProDisplay-Medium", size: 15)!
 }

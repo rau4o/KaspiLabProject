@@ -84,9 +84,9 @@ extension TableNotesController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell: TableNotesViewCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? TableNotesViewCell {
             cell.selectionStyle = .none
-            let entryModel = entries[indexPath.row]
+//            let entryModel = entries[indexPath.row]
             cell.addShadow()
-            cell.configureCell(entryModel: entryModel)
+//            cell.configureCell(entryModel: entryModel)
             return cell
         }
         return UITableViewCell()

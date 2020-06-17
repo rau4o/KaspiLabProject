@@ -40,6 +40,7 @@
 		AEE312F1249A7F3900804DAB /* UIFonts + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312F0249A7F3900804DAB /* UIFonts + Extension.swift */; };
 		AEE312F4249A818500804DAB /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312F3249A818500804DAB /* HeaderView.swift */; };
 		AEE312F6249A893900804DAB /* EntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312F5249A893900804DAB /* EntryModel.swift */; };
+		AEE312F8249A8B2800804DAB /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312F7249A8B2800804DAB /* RealmService.swift */; };
 		AEEED9B62497D741002BC43F /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEED9B52497D741002BC43F /* RegistrationController.swift */; };
 		AEEED9B82497D806002BC43F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEED9B72497D806002BC43F /* RegistrationView.swift */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,7 @@
 		AEE312F0249A7F3900804DAB /* UIFonts + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFonts + Extension.swift"; sourceTree = "<group>"; };
 		AEE312F3249A818500804DAB /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		AEE312F5249A893900804DAB /* EntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryModel.swift; sourceTree = "<group>"; };
+		AEE312F7249A8B2800804DAB /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		AEEED9B52497D741002BC43F /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		AEEED9B72497D806002BC43F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		C3555A6C4B9DDF4B987B643B /* Pods-MyNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotes.debug.xcconfig"; path = "Target Support Files/Pods-MyNotes/Pods-MyNotes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 		AE4A32642483DE29003A355F /* Realm Service */ = {
 			isa = PBXGroup;
 			children = (
+				AEE312F7249A8B2800804DAB /* RealmService.swift */,
 			);
 			path = "Realm Service";
 			sourceTree = "<group>";
@@ -215,11 +218,9 @@
 		AE4A32662483DE92003A355F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AEE312F9249A8B7200804DAB /* AuthorizationProcces */,
 				AEE312E9249A72AD00804DAB /* CollectionNotesPage */,
 				AE0118A4249935E60080A333 /* TableNotesPage */,
-				AE0118A2249926340080A333 /* MainRegistrationController.swift */,
-				AEEED9B42497D70E002BC43F /* RegistrationPage */,
-				AE5A99AC2497AD370050D331 /* LoginPage */,
 				AE4A32692483DED3003A355F /* WelcomeController.swift */,
 				AEE312E7249A711400804DAB /* MainTabbarController.swift */,
 			);
@@ -308,6 +309,16 @@
 				AEE312F3249A818500804DAB /* HeaderView.swift */,
 			);
 			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		AEE312F9249A8B7200804DAB /* AuthorizationProcces */ = {
+			isa = PBXGroup;
+			children = (
+				AE0118A2249926340080A333 /* MainRegistrationController.swift */,
+				AE5A99AC2497AD370050D331 /* LoginPage */,
+				AEEED9B42497D70E002BC43F /* RegistrationPage */,
+			);
+			path = AuthorizationProcces;
 			sourceTree = "<group>";
 		};
 		AEEED9B42497D70E002BC43F /* RegistrationPage */ = {
@@ -465,6 +476,7 @@
 				AE5A99BB2497B4DB0050D331 /* UIColor+Extension.swift in Sources */,
 				AEE312F4249A818500804DAB /* HeaderView.swift in Sources */,
 				AEE312E3249A6ED400804DAB /* CircleBarController.swift in Sources */,
+				AEE312F8249A8B2800804DAB /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

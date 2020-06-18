@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SOTabBar
 
 class MainTabbarController: CustomTabbarController {
 

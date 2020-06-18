@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double CircleBarVersionNumber;
-FOUNDATION_EXPORT const unsigned char CircleBarVersionString[];
+FOUNDATION_EXPORT double SOTabBarVersionNumber;
+FOUNDATION_EXPORT const unsigned char SOTabBarVersionString[];
 

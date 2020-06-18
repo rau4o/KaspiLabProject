@@ -10,7 +10,7 @@ target 'MyNotes' do
   pod 'TransitionButton'
   pod 'AnchoredBottomSheet'
   pod 'BmoViewPager', '~> 4.2.2'
-  pod 'CircleBar'
+  pod 'SOTabBar'
   pod 'Toucan'
   pod "IQKeyboardManager" 
   

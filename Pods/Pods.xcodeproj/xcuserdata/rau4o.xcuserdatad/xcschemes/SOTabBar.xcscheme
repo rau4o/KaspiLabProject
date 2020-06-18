@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B7378E43393E401083784252E88810C0"
-               BuildableName = "CircleBar.framework"
-               BlueprintName = "CircleBar"
+               BlueprintIdentifier = "C6ACF3335315E86A27831CC929125D4C"
+               BuildableName = "SOTabBar.framework"
+               BlueprintName = "SOTabBar"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

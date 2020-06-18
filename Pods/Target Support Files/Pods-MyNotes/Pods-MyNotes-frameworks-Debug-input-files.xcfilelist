@@ -1,10 +1,10 @@
 ${PODS_ROOT}/Target Support Files/Pods-MyNotes/Pods-MyNotes-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/AnchoredBottomSheet/AnchoredBottomSheet.framework
 ${BUILT_PRODUCTS_DIR}/BmoViewPager/BmoViewPager.framework
-${BUILT_PRODUCTS_DIR}/CircleBar/CircleBar.framework
 ${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework
 ${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
 ${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework
+${BUILT_PRODUCTS_DIR}/SOTabBar/SOTabBar.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/Toucan/Toucan.framework
 ${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework

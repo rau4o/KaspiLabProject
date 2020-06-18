@@ -15,7 +15,6 @@
 		AE4A32542483DD8E003A355F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE4A32522483DD8E003A355F /* Main.storyboard */; };
 		AE4A32562483DD8F003A355F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE4A32552483DD8F003A355F /* Assets.xcassets */; };
 		AE4A32592483DD8F003A355F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE4A32572483DD8F003A355F /* LaunchScreen.storyboard */; };
-		AE4A326A2483DED3003A355F /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4A32692483DED3003A355F /* WelcomeController.swift */; };
 		AE5A99AE2497AD6C0050D331 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99AD2497AD6C0050D331 /* LoginController.swift */; };
 		AE5A99B02497ADB00050D331 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99AF2497ADB00050D331 /* LoginView.swift */; };
 		AE5A99B22497ADF00050D331 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99B12497ADF00050D331 /* BaseView.swift */; };
@@ -42,6 +41,7 @@
 		AEE312F6249A893900804DAB /* EntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312F5249A893900804DAB /* EntryModel.swift */; };
 		AEE312F8249A8B2800804DAB /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312F7249A8B2800804DAB /* RealmService.swift */; };
 		AEE312FB249A8C8800804DAB /* CollectionNotesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312FA249A8C8800804DAB /* CollectionNotesViewCell.swift */; };
+		AEE31300249A923000804DAB /* AddEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312FF249A923000804DAB /* AddEntryController.swift */; };
 		AEEED9B62497D741002BC43F /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEED9B52497D741002BC43F /* RegistrationController.swift */; };
 		AEEED9B82497D806002BC43F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEED9B72497D806002BC43F /* RegistrationView.swift */; };
 /* End PBXBuildFile section */
@@ -57,7 +57,6 @@
 		AE4A32552483DD8F003A355F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE4A32582483DD8F003A355F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE4A325A2483DD8F003A355F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE4A32692483DED3003A355F /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		AE5A99AD2497AD6C0050D331 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		AE5A99AF2497ADB00050D331 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AE5A99B12497ADF00050D331 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -84,6 +83,7 @@
 		AEE312F5249A893900804DAB /* EntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryModel.swift; sourceTree = "<group>"; };
 		AEE312F7249A8B2800804DAB /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		AEE312FA249A8C8800804DAB /* CollectionNotesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionNotesViewCell.swift; sourceTree = "<group>"; };
+		AEE312FF249A923000804DAB /* AddEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryController.swift; sourceTree = "<group>"; };
 		AEEED9B52497D741002BC43F /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		AEEED9B72497D806002BC43F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		C3555A6C4B9DDF4B987B643B /* Pods-MyNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotes.debug.xcconfig"; path = "Target Support Files/Pods-MyNotes/Pods-MyNotes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,7 +153,6 @@
 				AE4A32682483DE9C003A355F /* Modules */,
 				AE5A99BD2497B6B50050D331 /* Common */,
 				AE4A32642483DE29003A355F /* Realm Service */,
-				AE4A32632483DE1C003A355F /* Neworking */,
 				AE4A32612483DDD4003A355F /* Launch */,
 				AE4A32602483DDBA003A355F /* Config */,
 				AE4A32552483DD8F003A355F /* Assets.xcassets */,
@@ -195,13 +194,6 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		AE4A32632483DE1C003A355F /* Neworking */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Neworking;
-			sourceTree = "<group>";
-		};
 		AE4A32642483DE29003A355F /* Realm Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,7 +218,6 @@
 				AEE312F9249A8B7200804DAB /* AuthorizationProcces */,
 				AEE312E9249A72AD00804DAB /* CollectionNotesPage */,
 				AE0118A4249935E60080A333 /* TableNotesPage */,
-				AE4A32692483DED3003A355F /* WelcomeController.swift */,
 				AEE312E7249A711400804DAB /* MainTabbarController.swift */,
 			);
 			path = View;
@@ -337,6 +328,7 @@
 		AEE312FD249A914D00804DAB /* Add Entry Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AEE312FF249A923000804DAB /* AddEntryController.swift */,
 			);
 			path = "Add Entry Controller";
 			sourceTree = "<group>";
@@ -480,7 +472,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE5A99B62497B07B0050D331 /* UITextField + Extension .swift in Sources */,
-				AE4A326A2483DED3003A355F /* WelcomeController.swift in Sources */,
 				AEE312FB249A8C8800804DAB /* CollectionNotesViewCell.swift in Sources */,
 				AE0118A3249926340080A333 /* MainRegistrationController.swift in Sources */,
 				AEE312EF249A7E8800804DAB /* UILabel + Extension.swift in Sources */,
@@ -505,6 +496,7 @@
 				AEE312F4249A818500804DAB /* HeaderView.swift in Sources */,
 				AEE312E3249A6ED400804DAB /* CircleBarController.swift in Sources */,
 				AEE312F8249A8B2800804DAB /* RealmService.swift in Sources */,
+				AEE31300249A923000804DAB /* AddEntryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

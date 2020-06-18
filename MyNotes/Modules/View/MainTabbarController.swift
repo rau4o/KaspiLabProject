@@ -9,13 +9,10 @@
 import UIKit
 import SOTabBar
 
-class MainTabbarController: SOTabBarController {
+class MainTabbarController: CustomTabbarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        SOTabBarSetting.tabBarTintColor = #colorLiteral(red: 2.248547389e-05, green: 0.7047000527, blue: 0.6947537661, alpha: 1)
-        SOTabBarSetting.tabBarBackground = .mainBlue
-        SOTabBarSetting.tabBarCircleSize = CGSize(width: 60, height: 60)
         configureControllers()
     }
     

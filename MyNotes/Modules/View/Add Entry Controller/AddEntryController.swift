@@ -13,6 +13,6 @@ class AddEntryController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .red
+        view.backgroundColor = UIColor(red: 250/255, green: 51/255, blue: 24/255, alpha: 1)
     }
 }

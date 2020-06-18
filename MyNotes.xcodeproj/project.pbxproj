@@ -10,6 +10,10 @@
 		3B95B30DBF40912142246E18 /* Pods_MyNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEDBB6B8D9B82176FE7729E5 /* Pods_MyNotes.framework */; };
 		AE0118A3249926340080A333 /* MainRegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0118A2249926340080A333 /* MainRegistrationController.swift */; };
 		AE0118A6249935F80080A333 /* TableNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0118A5249935F80080A333 /* TableNotesController.swift */; };
+		AE0814E1249BDC0C00E3DF57 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0814E0249BDC0C00E3DF57 /* CustomTabBar.swift */; };
+		AE0814E3249BDC6400E3DF57 /* CustomTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0814E2249BDC6400E3DF57 /* CustomTabbarController.swift */; };
+		AE0814E5249BDC9700E3DF57 /* CustomTabbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0814E4249BDC9700E3DF57 /* CustomTabbarItem.swift */; };
+		AE0814E7249BDCB500E3DF57 /* CustomTabbarSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0814E6249BDCB500E3DF57 /* CustomTabbarSetting.swift */; };
 		AE4A324D2483DD8E003A355F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4A324C2483DD8E003A355F /* AppDelegate.swift */; };
 		AE4A324F2483DD8E003A355F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4A324E2483DD8E003A355F /* SceneDelegate.swift */; };
 		AE4A32542483DD8E003A355F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE4A32522483DD8E003A355F /* Main.storyboard */; };
@@ -30,8 +34,6 @@
 		AE5A99CA2497B7C30050D331 /* SFProDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AE5A99C32497B7C30050D331 /* SFProDisplay-Bold.otf */; };
 		AE5A99CB2497B7C30050D331 /* SFProText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AE5A99C42497B7C30050D331 /* SFProText-Semibold.otf */; };
 		AE5A99CD2497C11A0050D331 /* Device+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99CC2497C11A0050D331 /* Device+Constants.swift */; };
-		AEE312E3249A6ED400804DAB /* CircleBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312E2249A6ED400804DAB /* CircleBarController.swift */; };
-		AEE312E6249A6EFD00804DAB /* CircleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312E5249A6EFD00804DAB /* CircleBar.swift */; };
 		AEE312E8249A711400804DAB /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312E7249A711400804DAB /* MainTabbarController.swift */; };
 		AEE312EB249A72C800804DAB /* CollectionNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312EA249A72C800804DAB /* CollectionNotesController.swift */; };
 		AEE312ED249A73D600804DAB /* TableNotesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312EC249A73D600804DAB /* TableNotesViewCell.swift */; };
@@ -50,6 +52,10 @@
 		A1632A37C808BC4048EBAD82 /* Pods-MyNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotes.release.xcconfig"; path = "Target Support Files/Pods-MyNotes/Pods-MyNotes.release.xcconfig"; sourceTree = "<group>"; };
 		AE0118A2249926340080A333 /* MainRegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRegistrationController.swift; sourceTree = "<group>"; };
 		AE0118A5249935F80080A333 /* TableNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableNotesController.swift; sourceTree = "<group>"; };
+		AE0814E0249BDC0C00E3DF57 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		AE0814E2249BDC6400E3DF57 /* CustomTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarController.swift; sourceTree = "<group>"; };
+		AE0814E4249BDC9700E3DF57 /* CustomTabbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarItem.swift; sourceTree = "<group>"; };
+		AE0814E6249BDCB500E3DF57 /* CustomTabbarSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarSetting.swift; sourceTree = "<group>"; };
 		AE4A32492483DD8E003A355F /* MyNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4A324C2483DD8E003A355F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE4A324E2483DD8E003A355F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,8 +78,6 @@
 		AE5A99C32497B7C30050D331 /* SFProDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.otf"; sourceTree = "<group>"; };
 		AE5A99C42497B7C30050D331 /* SFProText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Semibold.otf"; sourceTree = "<group>"; };
 		AE5A99CC2497C11A0050D331 /* Device+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+Constants.swift"; sourceTree = "<group>"; };
-		AEE312E2249A6ED400804DAB /* CircleBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleBarController.swift; sourceTree = "<group>"; };
-		AEE312E5249A6EFD00804DAB /* CircleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleBar.swift; sourceTree = "<group>"; };
 		AEE312E7249A711400804DAB /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		AEE312EA249A72C800804DAB /* CollectionNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionNotesController.swift; sourceTree = "<group>"; };
 		AEE312EC249A73D600804DAB /* TableNotesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableNotesViewCell.swift; sourceTree = "<group>"; };
@@ -285,8 +289,10 @@
 		AEE312E4249A6EE700804DAB /* Tabbar+Extension */ = {
 			isa = PBXGroup;
 			children = (
-				AEE312E2249A6ED400804DAB /* CircleBarController.swift */,
-				AEE312E5249A6EFD00804DAB /* CircleBar.swift */,
+				AE0814E0249BDC0C00E3DF57 /* CustomTabBar.swift */,
+				AE0814E2249BDC6400E3DF57 /* CustomTabbarController.swift */,
+				AE0814E4249BDC9700E3DF57 /* CustomTabbarItem.swift */,
+				AE0814E6249BDCB500E3DF57 /* CustomTabbarSetting.swift */,
 			);
 			path = "Tabbar+Extension";
 			sourceTree = "<group>";
@@ -480,12 +486,13 @@
 				AEE312F6249A893900804DAB /* EntryModel.swift in Sources */,
 				AE5A99AE2497AD6C0050D331 /* LoginController.swift in Sources */,
 				AEEED9B82497D806002BC43F /* RegistrationView.swift in Sources */,
+				AE0814E7249BDCB500E3DF57 /* CustomTabbarSetting.swift in Sources */,
 				AE4A324D2483DD8E003A355F /* AppDelegate.swift in Sources */,
 				AE5A99B22497ADF00050D331 /* BaseView.swift in Sources */,
 				AEE312F1249A7F3900804DAB /* UIFonts + Extension.swift in Sources */,
 				AE5A99B42497AEA80050D331 /* UIContainer + Extension.swift in Sources */,
-				AEE312E6249A6EFD00804DAB /* CircleBar.swift in Sources */,
 				AE5A99B02497ADB00050D331 /* LoginView.swift in Sources */,
+				AE0814E3249BDC6400E3DF57 /* CustomTabbarController.swift in Sources */,
 				AE4A324F2483DD8E003A355F /* SceneDelegate.swift in Sources */,
 				AE0118A6249935F80080A333 /* TableNotesController.swift in Sources */,
 				AE5A99CD2497C11A0050D331 /* Device+Constants.swift in Sources */,
@@ -493,8 +500,9 @@
 				AEE312E8249A711400804DAB /* MainTabbarController.swift in Sources */,
 				AEEED9B62497D741002BC43F /* RegistrationController.swift in Sources */,
 				AE5A99BB2497B4DB0050D331 /* UIColor+Extension.swift in Sources */,
+				AE0814E1249BDC0C00E3DF57 /* CustomTabBar.swift in Sources */,
 				AEE312F4249A818500804DAB /* HeaderView.swift in Sources */,
-				AEE312E3249A6ED400804DAB /* CircleBarController.swift in Sources */,
+				AE0814E5249BDC9700E3DF57 /* CustomTabbarItem.swift in Sources */,
 				AEE312F8249A8B2800804DAB /* RealmService.swift in Sources */,
 				AEE31300249A923000804DAB /* AddEntryController.swift in Sources */,
 			);

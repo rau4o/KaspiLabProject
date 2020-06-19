@@ -10,7 +10,25 @@ import UIKit
 
 extension UIView {
     
-    func inputContrainerView(image: UIImage, textField: UITextField? = nil, segmentedController: UISegmentedControl? = nil) -> UIView {
+    func inputTitleContainer(textField: UITextField? = nil) -> UIView{
+        let view = UIView()
+        
+        if let textField = textField {
+            view.addSubview(textField)
+            textField.centerY(inView: view)
+            textField.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingLeft: 0, paddingBottom: 8)
+        }
+        
+        let separatorView = UIView()
+        separatorView.backgroundColor = .white
+        view.addSubview(separatorView)
+        separatorView.addShadow()
+        separatorView.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingLeft: 8, height: 0.7)
+        
+        return view
+    }
+    
+    func inputContrainerView(image: UIImage? = nil, textField: UITextField? = nil, segmentedController: UISegmentedControl? = nil) -> UIView {
         let view = UIView()
         
         let imageView = UIImageView()

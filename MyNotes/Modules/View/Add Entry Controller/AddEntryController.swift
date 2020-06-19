@@ -12,7 +12,7 @@ class AddEntryController: UIViewController {
     
     // MARK: - Properties
     
-//    var addEntryView = AddEntryView()
+    var addEntryView = AddEntryView()
     
     // MARK: - Life Cycle
 
@@ -20,10 +20,16 @@ class AddEntryController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .orange
         initialSetup()
+        activateClosure()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    // MARK: - Helper function
+    
+    private func activateClosure() {
+        addEntryView.backButtonAction = { [weak self] in
+            guard let self = self else {return}
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
 
@@ -36,10 +42,10 @@ private extension AddEntryController {
     }
     
     private func layoutUI() {
-//        view.addSubview(addEntryView)
-//
-//        addEntryView.snp.makeConstraints { (make) in
-//            make.edges.equalToSuperview()
-//        }
+        view.addSubview(addEntryView)
+
+        addEntryView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
     }
 }

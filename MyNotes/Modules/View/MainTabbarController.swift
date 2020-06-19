@@ -17,12 +17,16 @@ class MainTabbarController: CustomTabbarController {
     
     private func configureControllers() {
         let tableController = TableNotesController()
-        let collectionController = CollectionNotesController()
         let addEntryController = AddEntryController()
+        let collectionController = CollectionNotesController()
+        let mapController = MapController()
+        let calendarController = CalendarController()
         
         tableController.tabBarItem = UITabBarItem(title: "notes", image: UIImage(named: "menu"), tag: 0)
-        collectionController.tabBarItem = UITabBarItem(title: "photos", image: UIImage(named: "collectionMenu"), tag: 1)
-        addEntryController.tabBarItem = UITabBarItem(title: "add", image: UIImage(named: "plusIcon"), tag: 2)
-        viewControllers = [tableController, addEntryController, collectionController]
+        addEntryController.tabBarItem = UITabBarItem(title: "add", image: UIImage(named: "plusIcon"), tag: 1)
+        collectionController.tabBarItem = UITabBarItem(title: "photos", image: UIImage(named: "collectionMenu"), tag: 2)
+        mapController.tabBarItem = UITabBarItem(title: "map", image: UIImage(named: "map"), tag: 3)
+        calendarController.tabBarItem = UITabBarItem(title: "calendar", image: UIImage(named: "calendar"), tag: 4)
+        viewControllers = [tableController, collectionController, addEntryController, mapController, calendarController]
     }
 }

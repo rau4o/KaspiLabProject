@@ -34,6 +34,9 @@
 		AE5A99CA2497B7C30050D331 /* SFProDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AE5A99C32497B7C30050D331 /* SFProDisplay-Bold.otf */; };
 		AE5A99CB2497B7C30050D331 /* SFProText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AE5A99C42497B7C30050D331 /* SFProText-Semibold.otf */; };
 		AE5A99CD2497C11A0050D331 /* Device+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99CC2497C11A0050D331 /* Device+Constants.swift */; };
+		AE9303A8249CCC66001E4803 /* AddEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9303A7249CCC66001E4803 /* AddEntryView.swift */; };
+		AE9303AA249CD05C001E4803 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9303A9249CD05C001E4803 /* MapController.swift */; };
+		AE9303AC249CD06A001E4803 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9303AB249CD06A001E4803 /* CalendarController.swift */; };
 		AEE312E8249A711400804DAB /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312E7249A711400804DAB /* MainTabbarController.swift */; };
 		AEE312EB249A72C800804DAB /* CollectionNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312EA249A72C800804DAB /* CollectionNotesController.swift */; };
 		AEE312ED249A73D600804DAB /* TableNotesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312EC249A73D600804DAB /* TableNotesViewCell.swift */; };
@@ -78,6 +81,9 @@
 		AE5A99C32497B7C30050D331 /* SFProDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.otf"; sourceTree = "<group>"; };
 		AE5A99C42497B7C30050D331 /* SFProText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Semibold.otf"; sourceTree = "<group>"; };
 		AE5A99CC2497C11A0050D331 /* Device+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+Constants.swift"; sourceTree = "<group>"; };
+		AE9303A7249CCC66001E4803 /* AddEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryView.swift; sourceTree = "<group>"; };
+		AE9303A9249CD05C001E4803 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
+		AE9303AB249CD06A001E4803 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		AEE312E7249A711400804DAB /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		AEE312EA249A72C800804DAB /* CollectionNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionNotesController.swift; sourceTree = "<group>"; };
 		AEE312EC249A73D600804DAB /* TableNotesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableNotesViewCell.swift; sourceTree = "<group>"; };
@@ -327,6 +333,7 @@
 		AEE312FC249A914200804DAB /* MapController */ = {
 			isa = PBXGroup;
 			children = (
+				AE9303A9249CD05C001E4803 /* MapController.swift */,
 			);
 			path = MapController;
 			sourceTree = "<group>";
@@ -335,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				AEE312FF249A923000804DAB /* AddEntryController.swift */,
+				AE9303A7249CCC66001E4803 /* AddEntryView.swift */,
 			);
 			path = "Add Entry Controller";
 			sourceTree = "<group>";
@@ -342,6 +350,7 @@
 		AEE312FE249A915D00804DAB /* Calendar Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AE9303AB249CD06A001E4803 /* CalendarController.swift */,
 			);
 			path = "Calendar Controller";
 			sourceTree = "<group>";
@@ -486,6 +495,7 @@
 				AEE312F6249A893900804DAB /* EntryModel.swift in Sources */,
 				AE5A99AE2497AD6C0050D331 /* LoginController.swift in Sources */,
 				AEEED9B82497D806002BC43F /* RegistrationView.swift in Sources */,
+				AE9303AC249CD06A001E4803 /* CalendarController.swift in Sources */,
 				AE0814E7249BDCB500E3DF57 /* CustomTabbarSetting.swift in Sources */,
 				AE4A324D2483DD8E003A355F /* AppDelegate.swift in Sources */,
 				AE5A99B22497ADF00050D331 /* BaseView.swift in Sources */,
@@ -502,8 +512,10 @@
 				AE5A99BB2497B4DB0050D331 /* UIColor+Extension.swift in Sources */,
 				AE0814E1249BDC0C00E3DF57 /* CustomTabBar.swift in Sources */,
 				AEE312F4249A818500804DAB /* HeaderView.swift in Sources */,
+				AE9303A8249CCC66001E4803 /* AddEntryView.swift in Sources */,
 				AE0814E5249BDC9700E3DF57 /* CustomTabbarItem.swift in Sources */,
 				AEE312F8249A8B2800804DAB /* RealmService.swift in Sources */,
+				AE9303AA249CD05C001E4803 /* MapController.swift in Sources */,
 				AEE31300249A923000804DAB /* AddEntryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

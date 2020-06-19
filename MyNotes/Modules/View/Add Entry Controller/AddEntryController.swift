@@ -9,10 +9,32 @@
 import UIKit
 
 class AddEntryController: UIViewController {
+    
+    // MARK: - Properties
+    
+    var addEntryView = AddEntryView()
+    
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initialSetup()
+    }
+}
 
-        view.backgroundColor = UIColor(red: 250/255, green: 51/255, blue: 24/255, alpha: 1)
+// MARK: - ConfigureUI
+
+private extension AddEntryController {
+    
+    func initialSetup() {
+        layoutUI()
+    }
+    
+    private func layoutUI() {
+        view.addSubview(addEntryView)
+        
+        addEntryView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
     }
 }

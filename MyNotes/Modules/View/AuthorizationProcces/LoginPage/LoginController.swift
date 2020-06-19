@@ -12,7 +12,7 @@ class LoginController: UIViewController {
     
     // MARK: - Properties
     
-    let vc = TableNotesController()
+    let vc = MainTabbarController()
     
     // MARK: - UI Elements
     

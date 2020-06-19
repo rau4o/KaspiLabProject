@@ -13,8 +13,7 @@ class AddEntryView: BaseView {
     // MARK: - Properties
     
     private lazy var titleContainerView: UIView = {
-        let view = UIView().inputContrainerView(image: UIImage(named: "student")!,
-                                                textField: titleTextField)
+        let view = UIView().inputContrainerView(image: UIImage(named: "student")!,textField: titleTextField)
         view.heightAnchor.constraint(equalToConstant: 50).isActive = true
         return view
     }()
@@ -46,7 +45,6 @@ class AddEntryView: BaseView {
         titleContainerView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().inset(50)
             make.left.right.equalToSuperview().inset(70)
-            
         }
     }
 }

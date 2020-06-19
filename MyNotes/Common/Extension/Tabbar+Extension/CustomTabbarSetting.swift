@@ -8,7 +8,6 @@
 
 import UIKit
 
-// Here you can customize the tab bar to meet your neededs
 public struct CustomTabbarSetting {
     
     public static var tabBarHeight: CGFloat = 66

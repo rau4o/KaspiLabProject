@@ -9,8 +9,10 @@
 import UIKit
 
 @available(iOS 10.0, *)
+
 public protocol CustomTabBarControllerDelegate: NSObjectProtocol {
     func tabBarController(_ tabBarController: CustomTabbarController, didSelect viewController: UIViewController)
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool
 }
 
 @available(iOS 10.0, *)

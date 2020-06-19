@@ -10,11 +10,12 @@ import RealmSwift
 
 class RealmService {
     
-    private init() {}
+    // MARK: - Properties
     
     static let shared = RealmService()
-    
     var realm = try! Realm()
+    
+    private init() {}
     
     func create<T: Object>(_ object: T) {
         do {

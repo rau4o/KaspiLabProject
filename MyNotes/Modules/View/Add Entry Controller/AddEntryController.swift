@@ -12,13 +12,18 @@ class AddEntryController: UIViewController {
     
     // MARK: - Properties
     
-    var addEntryView = AddEntryView()
+//    var addEntryView = AddEntryView()
     
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .orange
         initialSetup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 }
 
@@ -31,10 +36,10 @@ private extension AddEntryController {
     }
     
     private func layoutUI() {
-        view.addSubview(addEntryView)
-        
-        addEntryView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
+//        view.addSubview(addEntryView)
+//
+//        addEntryView.snp.makeConstraints { (make) in
+//            make.edges.equalToSuperview()
+//        }
     }
 }

@@ -15,7 +15,7 @@ class TableNotesController: UIViewController {
     // MARK: - Properties
     
     var entries: [EntryModel] = []
-    
+    let addEntryController = AddEntryController()
     let headerView = HeaderView()
     
     lazy private var tableView: UITableView = {
@@ -24,6 +24,9 @@ class TableNotesController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        tableView.layer.cornerRadius = 10
+        tableView.layer.backgroundColor = UIColor.cyan.cgColor
+        tableView.addShadow()
         return tableView
     }()
     
@@ -32,6 +35,17 @@ class TableNotesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        openAddEntry()
+    }
+    
+    // MARK: - Helper function
+    
+    private func openAddEntry() {
+        headerView.plusAction = { [weak self] in
+            guard let self = self else { return }
+            self.addEntryController.modalPresentationStyle = .fullScreen
+            self.present(self.addEntryController, animated: true, completion: nil)
+        }
     }
 }
 

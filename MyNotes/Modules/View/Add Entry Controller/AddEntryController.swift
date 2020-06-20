@@ -37,13 +37,13 @@ class AddEntryController: UIViewController {
             self.present(self.addEntryView.imagePicker, animated: true, completion: nil)
         }
         
-        addEntryView.saveAction = { [weak self] in
-            guard let self = self else { return }
-            self.viewModel.didFinishLoadData = { [weak self] in
-                guard let strongSelf = self else {return}
-                strongSelf.viewModel.saveEntry(entry: EntryModel())
-            }
-        }
+//        addEntryView.saveAction = { [weak self] in
+//            guard let self = self else { return }
+//            self.viewModel.didFinishLoadData = { [weak self] in
+//                guard let strongSelf = self else {return}
+//                strongSelf.viewModel.saveEntry(entry: EntryModel())
+//            }
+//        }
     }
 }
 

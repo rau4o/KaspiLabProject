@@ -18,6 +18,18 @@ class AddEntryView: BaseView {
     var cameraAction: (() -> Void)?
     var saveAction: (() -> Void)?
     
+    var titleText: String = "" {
+        didSet {
+            titleTextField.text = titleText
+        }
+    }
+    
+    var dateText: String = "" {
+        didSet {
+            
+        }
+    }
+    
     private let backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "back"), for: .normal)
@@ -73,6 +85,25 @@ class AddEntryView: BaseView {
         return button
     }()
     
+    let dateTextLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    let entryTextView: UITextView = {
+        let text = UITextView()
+        text.backgroundColor = .purple
+        text.font = UIFont(name: "SFProDisplay-Medium", size: 25)
+        return text
+    }()
+    
+    let datePicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.backgroundColor = .white
+        return datePicker
+    }()
+    
     // MARK: - Setup Views
     
     override func setupViews() {
@@ -84,20 +115,38 @@ class AddEntryView: BaseView {
     
     private func layoutUI() {
         
-        [scrollView, titleContainerView, backButton].forEach {
+        [scrollView, titleContainerView, backButton, entryTextView, saveButton, datePicker].forEach {
             addSubview($0)
         }
         scrollView.addSubview(stackView)
         
         titleContainerView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().inset(50)
-            make.left.right.equalToSuperview().inset(100)
+            make.left.right.equalToSuperview().inset(80)
         }
         
         backButton.snp.makeConstraints { (make) in
             make.left.equalToSuperview().inset(30)
             make.top.equalToSuperview().inset(20)
             make.height.width.equalTo(50)
+        }
+        
+        saveButton.snp.makeConstraints { (make) in
+            make.right.equalToSuperview().inset(30)
+            make.top.equalToSuperview().inset(20)
+            make.height.width.equalTo(50)
+        }
+        
+        entryTextView.snp.makeConstraints { (make) in
+            make.top.equalTo(titleTextField.snp.bottom).offset(50)
+            make.left.right.equalToSuperview().inset(50)
+            make.height.equalTo(150)
+        }
+        
+        datePicker.snp.makeConstraints { (make) in
+            make.top.equalTo(entryTextView.snp.bottom).offset(50)
+            make.left.right.equalToSuperview().inset(50)
+            make.height.equalTo(100)
         }
         
         scrollView.snp.makeConstraints { (make) in

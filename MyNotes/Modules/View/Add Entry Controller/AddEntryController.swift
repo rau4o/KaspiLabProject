@@ -13,6 +13,7 @@ class AddEntryController: UIViewController {
     // MARK: - Properties
     
     var addEntryView = AddEntryView()
+    var viewModel = AddEntryViewModel()
     
     // MARK: - Life Cycle
 
@@ -30,6 +31,19 @@ class AddEntryController: UIViewController {
             guard let self = self else {return}
             self.dismiss(animated: true, completion: nil)
         }
+        
+        addEntryView.cameraAction = { [weak self] in
+            guard let self = self else {return}
+            self.present(self.addEntryView.imagePicker, animated: true, completion: nil)
+        }
+        
+        addEntryView.saveAction = { [weak self] in
+            guard let self = self else { return }
+            self.viewModel.didFinishLoadData = { [weak self] in
+                guard let strongSelf = self else {return}
+                strongSelf.viewModel.saveEntry(entry: EntryModel())
+            }
+        }
     }
 }
 
@@ -45,7 +59,8 @@ private extension AddEntryController {
         view.addSubview(addEntryView)
 
         addEntryView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+            make.top.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.left.right.equalToSuperview()
         }
     }
 }

@@ -19,6 +19,7 @@
 		AE4A32542483DD8E003A355F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE4A32522483DD8E003A355F /* Main.storyboard */; };
 		AE4A32562483DD8F003A355F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE4A32552483DD8F003A355F /* Assets.xcassets */; };
 		AE4A32592483DD8F003A355F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE4A32572483DD8F003A355F /* LaunchScreen.storyboard */; };
+		AE4B2CF1249E5B6000DFE04F /* AddEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4B2CF0249E5B6000DFE04F /* AddEntryViewModel.swift */; };
 		AE5A99AE2497AD6C0050D331 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99AD2497AD6C0050D331 /* LoginController.swift */; };
 		AE5A99B02497ADB00050D331 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99AF2497ADB00050D331 /* LoginView.swift */; };
 		AE5A99B22497ADF00050D331 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99B12497ADF00050D331 /* BaseView.swift */; };
@@ -66,6 +67,7 @@
 		AE4A32552483DD8F003A355F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE4A32582483DD8F003A355F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE4A325A2483DD8F003A355F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE4B2CF0249E5B6000DFE04F /* AddEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryViewModel.swift; sourceTree = "<group>"; };
 		AE5A99AD2497AD6C0050D331 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		AE5A99AF2497ADB00050D331 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AE5A99B12497ADF00050D331 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 		AE4A32652483DE7E003A355F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				AE4B2CF0249E5B6000DFE04F /* AddEntryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				AEEED9B62497D741002BC43F /* RegistrationController.swift in Sources */,
 				AE5A99BB2497B4DB0050D331 /* UIColor+Extension.swift in Sources */,
 				AE0814E1249BDC0C00E3DF57 /* CustomTabBar.swift in Sources */,
+				AE4B2CF1249E5B6000DFE04F /* AddEntryViewModel.swift in Sources */,
 				AEE312F4249A818500804DAB /* HeaderView.swift in Sources */,
 				AE9303A8249CCC66001E4803 /* AddEntryView.swift in Sources */,
 				AE0814E5249BDC9700E3DF57 /* CustomTabbarItem.swift in Sources */,

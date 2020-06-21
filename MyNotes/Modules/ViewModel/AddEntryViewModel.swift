@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AddEntryViewModel {
     
-    private var entryModel: EntryModel? {
+    var entryModel: EntryModel? {
         didSet {
             guard let entryModel = entryModel else {return}
             setupEntryModel(with: entryModel)
@@ -20,7 +21,7 @@ class AddEntryViewModel {
     
     var imagesData: [UIImage] = []
     var textStoryViewModel: String?
-    var dateViewModel: Date?
+    var dateTextViewModel: String?
     var didFinishLoadData: (() -> Void)?
     
     func saveEntry(entry: EntryModel) {
@@ -29,12 +30,14 @@ class AddEntryViewModel {
     }
     
     private func setupEntryModel(with entryModel: EntryModel) {
-        textStoryViewModel = entryModel.text
-        dateViewModel = entryModel.date
-        for image in imagesData {
-            let pictureModel = Picture(image: image)
-            entryModel.pictures.append(pictureModel)
-            pictureModel.entry = entryModel
+        DispatchQueue.main.async {
+            self.textStoryViewModel = entryModel.text
+            self.dateTextViewModel = entryModel.datePrettyString()
+            for image in self.imagesData {
+                let pictureModel = Picture(image: image)
+                entryModel.pictures.append(pictureModel)
+                pictureModel.entry = entryModel
+            }
         }
     }
 }

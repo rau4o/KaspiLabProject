@@ -14,7 +14,7 @@ class TableNotesController: UIViewController {
     
     // MARK: - Properties
     
-    var entries: [EntryModel] = []
+    var viewModel = TableNotesViewModel()
     let addEntryController = AddEntryController()
     let headerView = HeaderView()
     
@@ -36,11 +36,15 @@ class TableNotesController: UIViewController {
         super.viewDidLoad()
         initialSetup()
         openAddEntry()
+        viewModel.getEntries {
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: - Helper function
     
     private func openAddEntry() {
+        
         headerView.plusAction = { [weak self] in
             guard let self = self else { return }
             self.addEntryController.modalPresentationStyle = .fullScreen
@@ -85,6 +89,7 @@ extension TableNotesController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
     }
+    
 }
 
 // MARK: - UITableViewDataSource
@@ -92,15 +97,15 @@ extension TableNotesController: UITableViewDelegate {
 extension TableNotesController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return viewModel.numberOfData()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell: TableNotesViewCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? TableNotesViewCell {
             cell.selectionStyle = .none
-//            let entryModel = entries[indexPath.row]
             cell.addShadow()
-//            cell.configureCell(entryModel: entryModel)
+            let entryModel = viewModel.getData(at: indexPath.row)
+            cell.configureCell(entryModel: entryModel)
             return cell
         }
         return UITableViewCell()
@@ -108,5 +113,13 @@ extension TableNotesController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        let pickUpLine = viewModel.getData(at: indexPath.row)
+        
+        RealmService.shared.delete(pickUpLine)
+        tableView.reloadData()
     }
 }

@@ -14,12 +14,15 @@ class AddEntryController: UIViewController {
     
     var addEntryView = AddEntryView()
     var viewModel = AddEntryViewModel()
+    var isCallSetUP = true
+    var intSelected: Int?
     
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .orange
+        addEntryView.dateTextField.delegate = self
         initialSetup()
         activateClosure()
     }
@@ -37,13 +40,17 @@ class AddEntryController: UIViewController {
             self.present(self.addEntryView.imagePicker, animated: true, completion: nil)
         }
         
-//        addEntryView.saveAction = { [weak self] in
-//            guard let self = self else { return }
-//            self.viewModel.didFinishLoadData = { [weak self] in
-//                guard let strongSelf = self else {return}
-//                strongSelf.viewModel.saveEntry(entry: EntryModel())
-//            }
-//        }
+        addEntryView.saveAction = { [weak self] in
+            guard let self = self else { return }
+            self.viewModel.saveEntry(entry: EntryModel())
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        viewModel.didFinishLoadData = { [weak self] in
+            guard let self = self else {return}
+            self.viewModel.textStoryViewModel = self.addEntryView.textDesc
+            self.viewModel.dateTextViewModel = self.addEntryView.dateText
+        }
     }
 }
 

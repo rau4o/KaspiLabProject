@@ -13,21 +13,15 @@ class TableNotesViewCell: UITableViewCell {
     // MARK: - Properties
     
     let yearLabel: UILabel = {
-        let label = UILabel(font: UIFont.mediumSF, textAlignment: .center)
-        label.text = "2010"
-        return label
+        return UILabel(font: UIFont.mediumSF, textAlignment: .center)
     }()
     
     let monthLabel: UILabel = {
-        let label = UILabel(font: UIFont.mediumSF, textAlignment: .center)
-        label.text = "june"
-        return label
+        return UILabel(font: UIFont.mediumSF, textAlignment: .center)
     }()
     
     let dayLabel: UILabel = {
-        let label = UILabel(font: UIFont.largeMediumSF, textAlignment: .center)
-        label.text = "20"
-        return label
+        return UILabel(font: UIFont.largeMediumSF, textAlignment: .center)
     }()
     
     let photoImageView: UIImageView = {
@@ -39,7 +33,6 @@ class TableNotesViewCell: UITableViewCell {
     
     let previewTextLabel: UILabel = {
         let label = UILabel(font: UIFont.tinyMediumSF, textAlignment: .left)
-        label.text = "today was a wonderful day because i finished my university and i started my big life"
         label.numberOfLines = 4
         return label
     }()

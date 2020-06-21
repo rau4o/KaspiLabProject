@@ -20,6 +20,8 @@
 		AE4A32562483DD8F003A355F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE4A32552483DD8F003A355F /* Assets.xcassets */; };
 		AE4A32592483DD8F003A355F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE4A32572483DD8F003A355F /* LaunchScreen.storyboard */; };
 		AE4B2CF1249E5B6000DFE04F /* AddEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4B2CF0249E5B6000DFE04F /* AddEntryViewModel.swift */; };
+		AE4B2CF3249E8AD800DFE04F /* CustomDatePicker+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4B2CF2249E8AD800DFE04F /* CustomDatePicker+Extension.swift */; };
+		AE4B2CF5249FA63D00DFE04F /* TableNotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4B2CF4249FA63D00DFE04F /* TableNotesViewModel.swift */; };
 		AE5A99AE2497AD6C0050D331 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99AD2497AD6C0050D331 /* LoginController.swift */; };
 		AE5A99B02497ADB00050D331 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99AF2497ADB00050D331 /* LoginView.swift */; };
 		AE5A99B22497ADF00050D331 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99B12497ADF00050D331 /* BaseView.swift */; };
@@ -68,6 +70,8 @@
 		AE4A32582483DD8F003A355F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE4A325A2483DD8F003A355F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE4B2CF0249E5B6000DFE04F /* AddEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryViewModel.swift; sourceTree = "<group>"; };
+		AE4B2CF2249E8AD800DFE04F /* CustomDatePicker+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomDatePicker+Extension.swift"; sourceTree = "<group>"; };
+		AE4B2CF4249FA63D00DFE04F /* TableNotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableNotesViewModel.swift; sourceTree = "<group>"; };
 		AE5A99AD2497AD6C0050D331 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		AE5A99AF2497ADB00050D331 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AE5A99B12497ADF00050D331 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 				AE5A99CC2497C11A0050D331 /* Device+Constants.swift */,
 				AEE312EE249A7E8800804DAB /* UILabel + Extension.swift */,
 				AEE312F0249A7F3900804DAB /* UIFonts + Extension.swift */,
+				AE4B2CF2249E8AD800DFE04F /* CustomDatePicker+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				AE4B2CF0249E5B6000DFE04F /* AddEntryViewModel.swift */,
+				AE4B2CF4249FA63D00DFE04F /* TableNotesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -491,6 +497,7 @@
 			files = (
 				AE5A99B62497B07B0050D331 /* UITextField + Extension .swift in Sources */,
 				AEE312FB249A8C8800804DAB /* CollectionNotesViewCell.swift in Sources */,
+				AE4B2CF3249E8AD800DFE04F /* CustomDatePicker+Extension.swift in Sources */,
 				AE0118A3249926340080A333 /* MainRegistrationController.swift in Sources */,
 				AEE312EF249A7E8800804DAB /* UILabel + Extension.swift in Sources */,
 				AEE312ED249A73D600804DAB /* TableNotesViewCell.swift in Sources */,
@@ -509,6 +516,7 @@
 				AE4A324F2483DD8E003A355F /* SceneDelegate.swift in Sources */,
 				AE0118A6249935F80080A333 /* TableNotesController.swift in Sources */,
 				AE5A99CD2497C11A0050D331 /* Device+Constants.swift in Sources */,
+				AE4B2CF5249FA63D00DFE04F /* TableNotesViewModel.swift in Sources */,
 				AE5A99B92497B4A70050D331 /* Constants.swift in Sources */,
 				AEE312E8249A711400804DAB /* MainTabbarController.swift in Sources */,
 				AEEED9B62497D741002BC43F /* RegistrationController.swift in Sources */,

@@ -24,9 +24,15 @@ class AddEntryView: BaseView {
         }
     }
     
+    var textDesc: String = "" {
+        didSet {
+            entryTextView.text = textDesc
+        }
+    }
+    
     var dateText: String = "" {
         didSet {
-            
+            dateTextField.text = dateText
         }
     }
     
@@ -85,11 +91,6 @@ class AddEntryView: BaseView {
         return button
     }()
     
-    let dateTextLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
     let entryTextView: UITextView = {
         let text = UITextView()
         text.backgroundColor = .purple
@@ -104,6 +105,14 @@ class AddEntryView: BaseView {
         return datePicker
     }()
     
+    let dateTextField: UITextField = {
+        let text = UITextField()
+        text.backgroundColor = .black
+        text.textColor = .white
+        text.font = UIFont(name: "SFProDisplay-Medium", size: 25)
+        return text
+    }()
+    
     // MARK: - Setup Views
     
     override func setupViews() {
@@ -115,7 +124,7 @@ class AddEntryView: BaseView {
     
     private func layoutUI() {
         
-        [scrollView, titleContainerView, backButton, entryTextView, saveButton, datePicker].forEach {
+        [scrollView, titleContainerView, backButton, entryTextView, saveButton, dateTextField].forEach {
             addSubview($0)
         }
         scrollView.addSubview(stackView)
@@ -143,10 +152,10 @@ class AddEntryView: BaseView {
             make.height.equalTo(150)
         }
         
-        datePicker.snp.makeConstraints { (make) in
-            make.top.equalTo(entryTextView.snp.bottom).offset(50)
+        dateTextField.snp.makeConstraints { (make) in
+            make.top.equalTo(entryTextView.snp.bottom).offset(30)
             make.left.right.equalToSuperview().inset(50)
-            make.height.equalTo(100)
+            make.height.equalTo(50)
         }
         
         scrollView.snp.makeConstraints { (make) in
@@ -178,6 +187,7 @@ class AddEntryView: BaseView {
     }
     
     @objc private func handleSaveAction(_ sender: UIButton) {
+        print(123)
         saveAction?()
     }
 }
@@ -204,5 +214,5 @@ extension AddEntryView: UIImagePickerControllerDelegate {
 // MARK: - UINavigationControllerDelegate
 
 extension AddEntryView: UINavigationControllerDelegate {
-    
+    // activate UIImagePicker
 }

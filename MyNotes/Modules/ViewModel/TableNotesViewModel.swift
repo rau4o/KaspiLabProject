@@ -26,7 +26,7 @@ class TableNotesViewModel {
         RealmService.shared.delete(entry)
     }
     
-    func getEntries(completion: @escaping ()-> Void) {
+    func getEntries() {
         entries = RealmService.shared.realm.objects(EntryModel.self).sorted(byKeyPath: "date", ascending: false)
     }
 }

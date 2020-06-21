@@ -36,15 +36,12 @@ class TableNotesController: UIViewController {
         super.viewDidLoad()
         initialSetup()
         openAddEntry()
-        viewModel.getEntries {
-            self.tableView.reloadData()
-        }
+        viewModel.getEntries()
     }
     
     // MARK: - Helper function
     
     private func openAddEntry() {
-        
         headerView.plusAction = { [weak self] in
             guard let self = self else { return }
             self.addEntryController.modalPresentationStyle = .fullScreen

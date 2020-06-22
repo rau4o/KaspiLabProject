@@ -40,16 +40,22 @@ class AddEntryController: UIViewController {
             self.present(self.addEntryView.imagePicker, animated: true, completion: nil)
         }
         
+//        viewModel.didFinishLoadData = { [weak self] in
+//            guard let self = self else {return}
+//            self.viewModel.textStoryViewModel = self.addEntryView.textDesc
+//            self.viewModel.dateTextViewModel = self.addEntryView.dateText
+//        }
+        
         addEntryView.saveAction = { [weak self] in
             guard let self = self else { return }
-            self.viewModel.saveEntry(entry: EntryModel())
+            self.viewModel.didFinishLoadData = { [weak self] in
+                self?.viewModel.textStoryViewModel = self?.addEntryView.textDesc
+                self?.viewModel.dateTextViewModel = self?.addEntryView.dateText
+            }
+            let entry = EntryModel()
+            self.viewModel.saveEntry(entry: entry)
+//            print(entry.text)
             self.dismiss(animated: true, completion: nil)
-        }
-        
-        viewModel.didFinishLoadData = { [weak self] in
-            guard let self = self else {return}
-            self.viewModel.textStoryViewModel = self.addEntryView.textDesc
-            self.viewModel.dateTextViewModel = self.addEntryView.dateText
         }
     }
 }

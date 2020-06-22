@@ -25,8 +25,14 @@ class AddEntryViewModel {
     var didFinishLoadData: (() -> Void)?
     
     func saveEntry(entry: EntryModel) {
-        self.entryModel = entry
-        RealmService.shared.create(entry)
+        RealmService.shared.create(entry, completion: {
+            self.entryModel = entry
+        })
+//        RealmService.shared.create(entry) { (entry) -> Object in
+//            self.entryModel = entry
+//            guard let entry = self.entryModel else {return Object()}
+//            return entry
+//        }
     }
     
     private func setupEntryModel(with entryModel: EntryModel) {

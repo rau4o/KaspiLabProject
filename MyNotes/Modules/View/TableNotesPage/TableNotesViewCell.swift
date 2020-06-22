@@ -34,6 +34,7 @@ class TableNotesViewCell: UITableViewCell {
     let previewTextLabel: UILabel = {
         let label = UILabel(font: UIFont.tinyMediumSF, textAlignment: .left)
         label.numberOfLines = 4
+        label.textColor = .red
         return label
     }()
     

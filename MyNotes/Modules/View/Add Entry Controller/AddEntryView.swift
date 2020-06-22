@@ -187,7 +187,6 @@ class AddEntryView: BaseView {
     }
     
     @objc private func handleSaveAction(_ sender: UIButton) {
-        print(123)
         saveAction?()
     }
 }

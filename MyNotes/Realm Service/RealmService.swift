@@ -17,10 +17,11 @@ class RealmService {
     
     private init() {}
     
-    func create<T: Object>(_ object: T) {
+    func create<T: Object>(_ object: T, completion: @escaping() -> Void) {
         do {
             try realm.write {
                 realm.add(object)
+                completion()
             }
         } catch {
             print(error.localizedDescription)

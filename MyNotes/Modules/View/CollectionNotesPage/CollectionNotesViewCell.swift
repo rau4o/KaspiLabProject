@@ -67,7 +67,11 @@ class CollectionNotesViewCell: UICollectionViewCell {
         }
     }
     
-    func configureCell(entryModel: EntryModel) {
-        
+    func configureCell(with entryModel: EntryModel) {
+        DispatchQueue.main.async {
+            self.photoImageView.image = entryModel.pictures.first?.thumbnail()
+            self.dayLabel.text = entryModel.dayPrettyString()
+            self.monthLabel.text = entryModel.monthPrettyString()
+        }
     }
 }

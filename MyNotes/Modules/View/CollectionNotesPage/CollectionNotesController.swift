@@ -14,6 +14,8 @@ class CollectionNotesController: UIViewController {
     
     // MARK: - Properties
     
+    var viewModel = CollectionNotesViewModel()
+    
     private let layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -34,8 +36,12 @@ class CollectionNotesController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         initialSetup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.getEntries()
     }
 }
 
@@ -68,12 +74,13 @@ extension CollectionNotesController: UICollectionViewDelegate {
 
 extension CollectionNotesController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return viewModel.numberOfItems()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell: CollectionNotesViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? CollectionNotesViewCell {
-            
+            let entry = viewModel.getData(at: indexPath.row)
+            cell.configureCell(with: entry)
             return cell
         }
         return UICollectionViewCell()
@@ -84,7 +91,6 @@ extension CollectionNotesController: UICollectionViewDataSource {
         let width = view.frame.width / 2 - 16
         return CGSize(width: width, height: height)
     }
-    
 }
 
 extension CollectionNotesController: UICollectionViewDelegateFlowLayout {

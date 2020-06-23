@@ -23,6 +23,7 @@
 		AE4B2CF3249E8AD800DFE04F /* CustomDatePicker+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4B2CF2249E8AD800DFE04F /* CustomDatePicker+Extension.swift */; };
 		AE4B2CF5249FA63D00DFE04F /* TableNotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4B2CF4249FA63D00DFE04F /* TableNotesViewModel.swift */; };
 		AE4B2CF824A21D5E00DFE04F /* TableNotesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4B2CF724A21D5E00DFE04F /* TableNotesDelegate.swift */; };
+		AE4B2CFA24A224CE00DFE04F /* CollectionNotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4B2CF924A224CE00DFE04F /* CollectionNotesViewModel.swift */; };
 		AE5A99AE2497AD6C0050D331 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99AD2497AD6C0050D331 /* LoginController.swift */; };
 		AE5A99B02497ADB00050D331 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99AF2497ADB00050D331 /* LoginView.swift */; };
 		AE5A99B22497ADF00050D331 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99B12497ADF00050D331 /* BaseView.swift */; };
@@ -74,6 +75,7 @@
 		AE4B2CF2249E8AD800DFE04F /* CustomDatePicker+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomDatePicker+Extension.swift"; sourceTree = "<group>"; };
 		AE4B2CF4249FA63D00DFE04F /* TableNotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableNotesViewModel.swift; sourceTree = "<group>"; };
 		AE4B2CF724A21D5E00DFE04F /* TableNotesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableNotesDelegate.swift; sourceTree = "<group>"; };
+		AE4B2CF924A224CE00DFE04F /* CollectionNotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionNotesViewModel.swift; sourceTree = "<group>"; };
 		AE5A99AD2497AD6C0050D331 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		AE5A99AF2497ADB00050D331 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AE5A99B12497ADF00050D331 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			children = (
 				AE4B2CF0249E5B6000DFE04F /* AddEntryViewModel.swift */,
 				AE4B2CF4249FA63D00DFE04F /* TableNotesViewModel.swift */,
+				AE4B2CF924A224CE00DFE04F /* CollectionNotesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				AE5A99B42497AEA80050D331 /* UIContainer + Extension.swift in Sources */,
 				AE5A99B02497ADB00050D331 /* LoginView.swift in Sources */,
 				AE0814E3249BDC6400E3DF57 /* CustomTabbarController.swift in Sources */,
+				AE4B2CFA24A224CE00DFE04F /* CollectionNotesViewModel.swift in Sources */,
 				AE4A324F2483DD8E003A355F /* SceneDelegate.swift in Sources */,
 				AE0118A6249935F80080A333 /* TableNotesController.swift in Sources */,
 				AE5A99CD2497C11A0050D331 /* Device+Constants.swift in Sources */,

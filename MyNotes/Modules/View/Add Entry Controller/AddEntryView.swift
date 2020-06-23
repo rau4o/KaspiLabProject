@@ -17,6 +17,7 @@ class AddEntryView: BaseView {
     var backButtonAction: (() -> Void)?
     var cameraAction: (() -> Void)?
     var saveAction: (() -> Void)?
+    var images: [UIImage] = []
     
     var titleText: String = "" {
         didSet {
@@ -197,7 +198,7 @@ extension AddEntryView: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let choosenImage = info[.originalImage] as? UIImage {
-            viewModel.imagesData.append(choosenImage)
+            images.append(choosenImage)
             let imageView = UIImageView()
             imageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
             imageView.widthAnchor.constraint(equalToConstant: 70).isActive = true

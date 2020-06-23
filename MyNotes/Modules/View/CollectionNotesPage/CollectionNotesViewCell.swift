@@ -15,13 +15,11 @@ class CollectionNotesViewCell: UICollectionViewCell {
     private let dayLabel: UILabel = {
         let label = UILabel(font: .enormousMediumSF, textAlignment: .right)
         label.textColor = .white
-        label.text = "23"
         return label
     }()
     
     private let monthLabel: UILabel = {
         let label = UILabel(font: .mediumSF, textAlignment: .right)
-        label.text = "June"
         label.textColor = .white
         return label
     }()

@@ -17,7 +17,7 @@ class AddEntryController: UIViewController {
     var isCallSetUP = true
     var intSelected: Int?
     let entryModel = EntryModel()
-    var images: [UIImage] = []
+//    var images: [UIImage] = []
     
     // MARK: - Life Cycle
 
@@ -53,17 +53,14 @@ class AddEntryController: UIViewController {
             
             DispatchQueue.main.async {
                 self.entryModel.text = self.addEntryView.entryTextView.text
-//                self.entryModel.date = self.addEntryView.
-                for image in self.images {
+                let imagesArr = self.addEntryView.images
+                for image in imagesArr {
                     let pictureModel = Picture(image: image)
                     self.entryModel.pictures.append(pictureModel)
                     pictureModel.entry = self.entryModel
                 }
                 RealmService.shared.create(self.entryModel)
             }
-//            RealmService.shared.create(<#T##object: T##T#>, completion: <#T##() -> Void#>)
-//            self.viewModel.saveEntry(entry: )
-//            print(entry.text)
             self.dismiss(animated: true, completion: nil)
         }
     }

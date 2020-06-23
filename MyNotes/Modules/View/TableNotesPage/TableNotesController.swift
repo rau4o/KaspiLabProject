@@ -36,9 +36,12 @@ class TableNotesController: UIViewController {
         super.viewDidLoad()
         initialSetup()
         openAddEntry()
-        viewModel.getEntries()
+        viewModel.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.getEntries()
+    }
     // MARK: - Helper function
     
     private func openAddEntry() {
@@ -117,6 +120,12 @@ extension TableNotesController: UITableViewDataSource {
         let pickUpLine = viewModel.getData(at: indexPath.row)
         
         RealmService.shared.delete(pickUpLine)
+        tableView.reloadData()
+    }
+}
+
+extension TableNotesController: TableNotesDelegate {
+    func reloadTableView() {
         tableView.reloadData()
     }
 }

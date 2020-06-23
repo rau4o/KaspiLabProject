@@ -22,6 +22,7 @@
 		AE4B2CF1249E5B6000DFE04F /* AddEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4B2CF0249E5B6000DFE04F /* AddEntryViewModel.swift */; };
 		AE4B2CF3249E8AD800DFE04F /* CustomDatePicker+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4B2CF2249E8AD800DFE04F /* CustomDatePicker+Extension.swift */; };
 		AE4B2CF5249FA63D00DFE04F /* TableNotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4B2CF4249FA63D00DFE04F /* TableNotesViewModel.swift */; };
+		AE4B2CF824A21D5E00DFE04F /* TableNotesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4B2CF724A21D5E00DFE04F /* TableNotesDelegate.swift */; };
 		AE5A99AE2497AD6C0050D331 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99AD2497AD6C0050D331 /* LoginController.swift */; };
 		AE5A99B02497ADB00050D331 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99AF2497ADB00050D331 /* LoginView.swift */; };
 		AE5A99B22497ADF00050D331 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99B12497ADF00050D331 /* BaseView.swift */; };
@@ -72,6 +73,7 @@
 		AE4B2CF0249E5B6000DFE04F /* AddEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryViewModel.swift; sourceTree = "<group>"; };
 		AE4B2CF2249E8AD800DFE04F /* CustomDatePicker+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomDatePicker+Extension.swift"; sourceTree = "<group>"; };
 		AE4B2CF4249FA63D00DFE04F /* TableNotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableNotesViewModel.swift; sourceTree = "<group>"; };
+		AE4B2CF724A21D5E00DFE04F /* TableNotesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableNotesDelegate.swift; sourceTree = "<group>"; };
 		AE5A99AD2497AD6C0050D331 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		AE5A99AF2497ADB00050D331 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AE5A99B12497ADF00050D331 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -260,6 +262,14 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
+		AE4B2CF624A21D4800DFE04F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AE4B2CF724A21D5E00DFE04F /* TableNotesDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		AE5A99AC2497AD370050D331 /* LoginPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +304,7 @@
 		AE5A99BD2497B6B50050D331 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				AE4B2CF624A21D4800DFE04F /* Protocols */,
 				AE5A99B72497B4940050D331 /* Constants */,
 				AE4A32622483DE11003A355F /* Extension */,
 				AE5A99BC2497B6AE0050D331 /* Fonts */,
@@ -516,6 +527,7 @@
 				AE4A324F2483DD8E003A355F /* SceneDelegate.swift in Sources */,
 				AE0118A6249935F80080A333 /* TableNotesController.swift in Sources */,
 				AE5A99CD2497C11A0050D331 /* Device+Constants.swift in Sources */,
+				AE4B2CF824A21D5E00DFE04F /* TableNotesDelegate.swift in Sources */,
 				AE4B2CF5249FA63D00DFE04F /* TableNotesViewModel.swift in Sources */,
 				AE5A99B92497B4A70050D331 /* Constants.swift in Sources */,
 				AEE312E8249A711400804DAB /* MainTabbarController.swift in Sources */,

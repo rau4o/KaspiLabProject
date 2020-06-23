@@ -16,6 +16,8 @@ class AddEntryController: UIViewController {
     var viewModel = AddEntryViewModel()
     var isCallSetUP = true
     var intSelected: Int?
+    let entryModel = EntryModel()
+    var images: [UIImage] = []
     
     // MARK: - Life Cycle
 
@@ -40,20 +42,27 @@ class AddEntryController: UIViewController {
             self.present(self.addEntryView.imagePicker, animated: true, completion: nil)
         }
         
-//        viewModel.didFinishLoadData = { [weak self] in
-//            guard let self = self else {return}
-//            self.viewModel.textStoryViewModel = self.addEntryView.textDesc
-//            self.viewModel.dateTextViewModel = self.addEntryView.dateText
-//        }
+        viewModel.didFinishLoadData = { [weak self] in
+            guard let self = self else {return}
+            self.viewModel.textStoryViewModel = self.addEntryView.entryTextView.text
+            self.viewModel.dateTextViewModel = self.addEntryView.dateText
+        }
         
         addEntryView.saveAction = { [weak self] in
             guard let self = self else { return }
-            self.viewModel.didFinishLoadData = { [weak self] in
-                self?.viewModel.textStoryViewModel = self?.addEntryView.textDesc
-                self?.viewModel.dateTextViewModel = self?.addEntryView.dateText
+            
+            DispatchQueue.main.async {
+                self.entryModel.text = self.addEntryView.entryTextView.text
+//                self.entryModel.date = self.addEntryView.
+                for image in self.images {
+                    let pictureModel = Picture(image: image)
+                    self.entryModel.pictures.append(pictureModel)
+                    pictureModel.entry = self.entryModel
+                }
+                RealmService.shared.create(self.entryModel)
             }
-            let entry = EntryModel()
-            self.viewModel.saveEntry(entry: entry)
+//            RealmService.shared.create(<#T##object: T##T#>, completion: <#T##() -> Void#>)
+//            self.viewModel.saveEntry(entry: )
 //            print(entry.text)
             self.dismiss(animated: true, completion: nil)
         }

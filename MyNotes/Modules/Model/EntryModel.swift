@@ -16,6 +16,13 @@ class EntryModel: Object {
     @objc dynamic var date = Date()
     let pictures = List<Picture>()
     
+//    convenience init(text: String, date: String) {
+//        self.init()
+//        self.text = text
+//        self.date = date
+//        self.pictures = pictures
+//    }
+    
     func datePrettyString() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "E, MMM d, yyyy"

@@ -189,6 +189,7 @@ class AddEntryView: BaseView {
     }
     
     @objc private func handleSaveAction(_ sender: UIButton) {
+        images = []
         saveAction?()
     }
 }

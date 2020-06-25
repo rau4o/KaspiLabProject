@@ -13,6 +13,7 @@ target 'MyNotes' do
   pod 'Toucan'
   pod "IQKeyboardManager"
   pod 'SBDropDown'
+  pod 'MapViewPlus'
   
 
 end

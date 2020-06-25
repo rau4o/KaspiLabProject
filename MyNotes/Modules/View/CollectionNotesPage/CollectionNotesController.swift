@@ -93,5 +93,7 @@ extension CollectionNotesController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
+
 extension CollectionNotesController: UICollectionViewDelegateFlowLayout {
 }

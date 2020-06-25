@@ -119,6 +119,7 @@ class AddEntryView: BaseView {
     override func setupViews() {
         layoutUI()
         imagePicker.delegate = self
+        images = []
     }
     
     // MARK: - Helper function

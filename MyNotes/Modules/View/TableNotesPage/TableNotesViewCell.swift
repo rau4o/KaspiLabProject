@@ -31,11 +31,10 @@ class TableNotesViewCell: UITableViewCell {
         return image
     }()
     
-    let previewTextLabel: UILabel = {
-        let label = UILabel(font: UIFont.tinyMediumSF, textAlignment: .left)
-        label.numberOfLines = 4
-        label.textColor = .red
-        return label
+    let previewText: UITextView = {
+        let text = UITextView()
+        text.font = UIFont.tinyMediumSF
+        return text
     }()
     
     // MARK: - Init
@@ -52,7 +51,7 @@ class TableNotesViewCell: UITableViewCell {
     // MARK: - Helper function
     
     private func layoutUI() {
-        [photoImageView, previewTextLabel, monthLabel, dayLabel, yearLabel].forEach {
+        [photoImageView, previewText, monthLabel, dayLabel, yearLabel].forEach {
             addSubview($0)
         }
         
@@ -61,7 +60,7 @@ class TableNotesViewCell: UITableViewCell {
             make.width.equalTo(100)
         }
         
-        previewTextLabel.snp.makeConstraints { (make) in
+        previewText.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview().inset(5)
             make.left.equalTo(photoImageView.snp.right).offset(5)
             make.right.equalTo(monthLabel.snp.left)
@@ -95,7 +94,7 @@ class TableNotesViewCell: UITableViewCell {
             self.dayLabel.text = entryModel.dayPrettyString()
             self.monthLabel.text = entryModel.monthPrettyString()
             self.yearLabel.text = entryModel.yearPrettyString()
-            self.previewTextLabel.text = entryModel.text
+            self.previewText.text = entryModel.text
         }
     }
 }

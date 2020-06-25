@@ -23,6 +23,6 @@ class CollectionNotesViewModel {
     }
     
     func getEntries() {
-        self.entries = RealmService.shared.realm.objects(EntryModel.self).sorted(byKeyPath: "date", ascending: false)
+        self.entries = (RealmService.shared.realm.objects(EntryModel.self)).sorted(byKeyPath: "date", ascending: false)
     }
 }

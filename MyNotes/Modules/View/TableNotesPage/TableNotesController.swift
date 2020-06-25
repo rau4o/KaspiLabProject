@@ -72,7 +72,8 @@ private extension TableNotesController {
         }
         
         headerView.snp.makeConstraints { (make) in
-            make.top.left.right.equalTo(self.view.safeAreaLayoutGuide)
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.left.right.equalToSuperview()
             make.height.equalTo(200)
         }
         

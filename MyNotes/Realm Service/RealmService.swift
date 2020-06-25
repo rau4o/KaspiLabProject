@@ -21,6 +21,7 @@ class RealmService {
         do {
             try realm.write {
                 realm.add(object)
+//                realm.add(object, update: .modified)
             }
         } catch {
             print(error.localizedDescription)

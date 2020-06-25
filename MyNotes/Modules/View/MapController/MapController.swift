@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import MapViewPlus
 import CoreLocation
+import AnchoredBottomSheet
 
 class MapController: UIViewController {
     
@@ -39,6 +40,21 @@ class MapController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
+    
+    private func presentModalWithStackView() {
+        let configuration = BottomSheetViewConfiguration(contentView: UIView(),
+                                                         parentViewController: self,
+                                                         defaultPosition: .middle(),
+                                                         positions: [.middle(), .top()],
+                                                         isPullIndicatorNeeded: true,
+                                                         isCloseButtonNeeded: false,
+                                                         isDismissAllowed: true)
+        let bottomSheetView = BottomSheetView(configuration: configuration)
+        let bottomSheetViewController = BottomSheetViewController(bottomSheetView: bottomSheetView)
+
+        bottomSheetViewController.delegate = self
+        bottomSheetViewController.present(from: self)
+    }
 }
 
 // MARK: - MapViewPlusDelegate
@@ -51,27 +67,15 @@ extension MapController: MapViewPlusDelegate {
     
     func mapView(_ mapView: MapViewPlus, calloutViewFor annotationView: AnnotationViewPlus) -> CalloutViewPlus{
         let calloutView = MapViewPlusTemplateHelper.defaultCalloutView
-        
-        // Below two are:
-        // Required if DefaultCalloutView is being used
-        // Optional if you are using your own callout view
         mapView.calloutViewCustomizerDelegate = calloutView
         mapView.anchorViewCustomizerDelegate = calloutView
-        
-        //Optional. Conform to this if you want button click delegate method to be called.
         calloutView.delegate = self
         
         return calloutView
     }
     
-    // Optional
     func mapView(_ mapView: MapViewPlus, didAddAnnotations annotations: [AnnotationPlus]) {
         mapView.showAnnotations(annotations, animated: true)
-    }
-    
-    // Optional. Just to show that delegate forwarding is actually working.
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        print("This method is being forwarded to you by MapViewPlusDelegate")
     }
 }
 
@@ -79,10 +83,15 @@ extension MapController: MapViewPlusDelegate {
 
 extension MapController: DefaultCalloutViewDelegate {
     func buttonDetailTapped(with viewModel: DefaultCalloutViewModelProtocol, buttonType: DefaultCalloutViewButtonType) {
-        let alert = UIAlertController(title: buttonType == .background ? "Background Tapped" : "Detail Button Tapped", message: viewModel.title + "  " + (viewModel.subtitle ?? ""), preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(confirmAction)
-        self.present(alert, animated: true, completion: nil)
+        presentModalWithStackView()
+    }
+}
+
+// MARK: - BottomSheetViewControllerDelegate
+
+extension MapController: BottomSheetViewControllerDelegate {
+    func didDismiss() {
+        print("dismissed")
     }
 }
 

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Photos
+import MapKit
 
 class AddEntryView: BaseView {
     
@@ -17,13 +19,11 @@ class AddEntryView: BaseView {
     var backButtonAction: (() -> Void)?
     var cameraAction: (() -> Void)?
     var saveAction: (() -> Void)?
+    var showLocationAction: (() -> Void)?
+    var showPhotoLibrary: (() -> Void)?
     var images: [UIImage] = []
-    
-    var titleText: String = "" {
-        didSet {
-            titleTextField.text = titleText
-        }
-    }
+    let placemarks: [MKPlacemark] = []
+    var startWithCamera = false
     
     var textDesc: String = "" {
         didSet {
@@ -37,35 +37,17 @@ class AddEntryView: BaseView {
         }
     }
     
+    let addPhotoButton: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "plus_photo"), for: .normal)
+        button.addTarget(self, action: #selector(handleShowImagePickerView(_:)), for: .touchUpInside)
+        return button
+    }()
+    
     private let backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "back"), for: .normal)
         button.addTarget(self, action: #selector(handleBackButton(_:)), for: .touchUpInside)
-        return button
-    }()
-    
-    private lazy var titleContainerView: UIView = {
-        let view = UIView().inputTitleContainer(textField: titleTextField)
-        view.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        return view
-    }()
-    
-    let titleTextField: UITextField = {
-        let tf = UITextField()
-        tf.attributedPlaceholder = NSAttributedString(
-            string: "Title",
-            attributes:
-            [NSAttributedString.Key.foregroundColor: UIColor.white,
-             NSAttributedString.Key.font: UIFont(name: "SFProDisplay-Medium", size: 20)!])
-        tf.tintColor = .white
-        tf.textAlignment = .center
-        return tf
-    }()
-    
-    private lazy var cameraButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "blueCamera"), for: .normal)
-        button.addTarget(self, action: #selector(handleBlueCameraTapped(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -76,8 +58,8 @@ class AddEntryView: BaseView {
         return scrollView
     }()
     
-    lazy private var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [cameraButton])
+    lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [])
         stackView.axis = .horizontal
         stackView.spacing = 10
         stackView.alignment = .fill
@@ -95,7 +77,7 @@ class AddEntryView: BaseView {
     let entryTextView: UITextView = {
         let text = UITextView()
         text.backgroundColor = .purple
-        text.font = UIFont(name: "SFProDisplay-Medium", size: 25)
+        text.font = UIFont(name: "SFProDisplay-Medium", size: 15)
         return text
     }()
     
@@ -114,67 +96,110 @@ class AddEntryView: BaseView {
         return text
     }()
     
+    let locationButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("location", for: .normal)
+        button.addTarget(self, action: #selector(handleShowLocationAction(_:)), for: .touchUpInside)
+        button.backgroundColor = .red
+        return button
+    }()
+    
+    let imageView = UIImageView()
+    
+    private let separatorLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
+        return view
+    }()
+    
     // MARK: - Setup Views
     
     override func setupViews() {
         layoutUI()
         imagePicker.delegate = self
-        images = []
+        dateTextField.isHidden = true
     }
     
     // MARK: - Helper function
     
     private func layoutUI() {
         
-        [scrollView, titleContainerView, backButton, entryTextView, saveButton, dateTextField].forEach {
+        [addPhotoButton,entryTextView, separatorLine].forEach {
             addSubview($0)
         }
-        scrollView.addSubview(stackView)
         
-        titleContainerView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().inset(50)
-            make.left.right.equalToSuperview().inset(80)
-        }
-        
-        backButton.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().inset(30)
-            make.top.equalToSuperview().inset(20)
-            make.height.width.equalTo(50)
-        }
-        
-        saveButton.snp.makeConstraints { (make) in
-            make.right.equalToSuperview().inset(30)
-            make.top.equalToSuperview().inset(20)
-            make.height.width.equalTo(50)
-        }
-        
-        entryTextView.snp.makeConstraints { (make) in
-            make.top.equalTo(titleTextField.snp.bottom).offset(50)
-            make.left.right.equalToSuperview().inset(50)
-            make.height.equalTo(150)
-        }
-        
-        dateTextField.snp.makeConstraints { (make) in
-            make.top.equalTo(entryTextView.snp.bottom).offset(30)
-            make.left.right.equalToSuperview().inset(50)
-            make.height.equalTo(50)
-        }
-        
-        scrollView.snp.makeConstraints { (make) in
-            make.bottom.equalToSuperview()
-            make.height.equalTo(70)
-            make.width.equalToSuperview()
-            make.left.right.equalToSuperview()
-        }
-        
-        stackView.snp.makeConstraints { (make) in
-            make.edges.equalTo(scrollView)
-        }
-        
-        cameraButton.snp.makeConstraints { (make) in
+        addPhotoButton.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(65)
+            make.left.equalToSuperview().offset(20)
             make.height.equalTo(70)
             make.width.equalTo(70)
         }
+        
+        entryTextView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(50)
+            make.left.equalTo(addPhotoButton.snp.right).offset(20)
+            make.height.equalTo(100)
+            make.right.equalToSuperview().inset(10)
+        }
+        
+        separatorLine.snp.makeConstraints { (make) in
+            make.height.equalTo(0.8)
+            make.left.right.equalToSuperview()
+            make.top.equalTo(entryTextView.snp.bottom).offset(10)
+        }
+        
+//        [scrollView, titleContainerView, backButton, entryTextView, saveButton, cameraButton,dateTextField].forEach {
+//            addSubview($0)
+//        }
+        
+        
+//        scrollView.addSubview(stackView)
+//
+//        titleContainerView.snp.makeConstraints { (make) in
+//            make.top.equalToSuperview().inset(50)
+//            make.left.right.equalToSuperview().inset(80)
+//        }
+//
+//        backButton.snp.makeConstraints { (make) in
+//            make.left.equalToSuperview().inset(30)
+//            make.top.equalToSuperview().inset(20)
+//            make.height.width.equalTo(50)
+//        }
+//
+//        saveButton.snp.makeConstraints { (make) in
+//            make.right.equalToSuperview().inset(30)
+//            make.top.equalToSuperview().inset(20)
+//            make.height.width.equalTo(50)
+//        }
+//
+//        entryTextView.snp.makeConstraints { (make) in
+//            make.top.equalTo(titleTextField.snp.bottom).offset(50)
+//            make.left.right.equalToSuperview().inset(50)
+//            make.height.equalTo(150)
+//        }
+//
+//        dateTextField.snp.makeConstraints { (make) in
+//            make.top.equalTo(entryTextView.snp.bottom).offset(30)
+//            make.left.right.equalToSuperview().inset(50)
+//            make.height.equalTo(50)
+//        }
+//
+//        scrollView.snp.makeConstraints { (make) in
+//            make.bottom.equalTo(cameraButton.snp.top)
+//            make.height.equalTo(70)
+//            make.width.equalToSuperview()
+//            make.left.right.equalToSuperview()
+//        }
+//
+//        stackView.snp.makeConstraints { (make) in
+//            make.edges.equalTo(scrollView)
+//        }
+//
+//        cameraButton.snp.makeConstraints { (make) in
+//            make.top.equalTo(scrollView.snp.bottom).offset(5)
+//            make.left.right.bottom.equalToSuperview()
+//            make.height.equalTo(50)
+//        }
     }
     
     // MARK: - Selectors
@@ -183,14 +208,20 @@ class AddEntryView: BaseView {
         backButtonAction?()
     }
     
-    @objc private func handleBlueCameraTapped(_ sender: UIButton) {
-        imagePicker.sourceType = .photoLibrary
-        cameraAction?()
+    @objc private func handleSaveAction(_ sender: UIButton) {
+        saveAction?()
+        images.removeAll()
+        entryTextView.text = ""
+        stackView.removeFullyAllArrangedSubviews()
     }
     
-    @objc private func handleSaveAction(_ sender: UIButton) {
-        images = []
-        saveAction?()
+    @objc private func handleShowLocationAction(_ sender: UIButton) {
+        showLocationAction?()
+    }
+    
+    @objc private func handleShowImagePickerView(_ sender: UIButton) {
+        imagePicker.sourceType = .photoLibrary
+        cameraAction?()
     }
 }
 
@@ -199,15 +230,20 @@ class AddEntryView: BaseView {
 extension AddEntryView: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         if let choosenImage = info[.originalImage] as? UIImage {
             images.append(choosenImage)
-            let imageView = UIImageView()
             imageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
             imageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
             imageView.image = choosenImage
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             stackView.addArrangedSubview(imageView)
+            addPhotoButton.setImage(choosenImage.withRenderingMode(.alwaysOriginal), for: .normal)
+            
+            if let asset = info[UIImagePickerController.InfoKey.phAsset] as? PHAsset {
+                print("============> \(asset.location?.coordinate.longitude ?? 0) \(asset.location?.coordinate.latitude ?? 0)")
+            }
             imagePicker.dismiss(animated: true, completion: nil)
         }
     }

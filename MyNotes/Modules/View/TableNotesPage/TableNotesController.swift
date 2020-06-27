@@ -40,6 +40,7 @@ class TableNotesController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         viewModel.getEntries()
     }
     // MARK: - Helper function
@@ -48,6 +49,13 @@ class TableNotesController: UIViewController {
         headerView.plusAction = { [weak self] in
             guard let self = self else { return }
             self.addEntryController.modalPresentationStyle = .fullScreen
+            self.present(self.addEntryController, animated: true, completion: nil)
+        }
+        
+        headerView.cameraAction = { [weak self] in
+            guard let self = self else {return}
+            self.addEntryController.modalPresentationStyle = .fullScreen
+            self.addEntryController.addEntryView.startWithCamera = true
             self.present(self.addEntryController, animated: true, completion: nil)
         }
     }
@@ -90,7 +98,6 @@ extension TableNotesController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
     }
-    
 }
 
 // MARK: - UITableViewDataSource

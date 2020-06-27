@@ -28,28 +28,3 @@ class MainTabbarController: CustomTabbarController {
         viewControllers = [tableController, collectionController, mapController, calendarController]
     }
 }
-
-//MARK: - CustomTabBarControllerDelegate
-
-//extension MainTabbarController: CustomTabBarControllerDelegate {
-//
-//    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-////        let index = viewControllers.firstIndex(of: viewController)
-////
-////        if index == 2 {
-////            let controller = AddEntryController()
-////            self.present(controller, animated: true, completion: nil)
-////            return false
-////        }
-//        return true
-//    }
-//
-//    func tabBarController(_ tabBarController: CustomTabbarController, didSelect viewController: UIViewController) {
-//        if viewController is AddEntryController {
-//            let controller = AddEntryController()
-//            self.present(controller, animated: true, completion: nil)
-//        }
-//    }
-//}
-
-

@@ -12,6 +12,7 @@ import RealmSwift
 class CollectionNotesViewModel {
     
     var entries: Results<EntryModel>?
+    weak var delegate: TableNotesDelegate?
     
     func numberOfItems() -> Int {
         entries?.count ?? 0
@@ -24,5 +25,8 @@ class CollectionNotesViewModel {
     
     func getEntries() {
         self.entries = (RealmService.shared.realm.objects(EntryModel.self)).sorted(byKeyPath: "date", ascending: false)
+        DispatchQueue.main.async {
+            self.delegate?.reloadTableView()
+        }
     }
 }

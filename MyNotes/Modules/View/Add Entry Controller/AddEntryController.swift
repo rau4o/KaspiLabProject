@@ -14,20 +14,55 @@ class AddEntryController: UIViewController {
     
     var addEntryView = AddEntryView()
     var viewModel = AddEntryViewModel()
+    let mapController = MapController()
     var isCallSetUP = true
     var intSelected: Int?
+//    let navBar = UINavigationBar()
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .orange
+        view.backgroundColor = .white
         addEntryView.dateTextField.delegate = self
         initialSetup()
         activateClosure()
+        setNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        addEntryView.images.removeAll()
+        addEntryView.entryTextView.text = ""
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if addEntryView.startWithCamera {
+            addEntryView.startWithCamera = false
+            self.present(self.addEntryView.imagePicker, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Helper function
+    
+    func setNavigationBar() {
+        let screenSize: CGRect = UIScreen.main.bounds
+        let startingYPos = UIApplication.shared.statusBarFrame.size.height
+        let navBar = UINavigationBar(frame: CGRect(x: 0, y: startingYPos, width: screenSize.width, height: 50))
+        
+        let navItem = UINavigationItem(title: "Publish new Entry")
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(backAction(_:)))
+        navItem.rightBarButtonItem = doneItem
+        navBar.setItems([navItem], animated: false)
+        self.view.addSubview(navBar)
+    }
+    
+    @objc func backAction(_ sender: UINavigationItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     private func activateClosure() {
         addEntryView.backButtonAction = { [weak self] in
@@ -57,8 +92,10 @@ class AddEntryController: UIViewController {
                 entryModel.pictures.append(pictureModel)
                 pictureModel.entry = entryModel
             }
+//            let model = Location(long: 2.1, lat: 22.2)
+//            entryModel.coordinates.append(model)
+//            model.entry = entryModel
             RealmService.shared.create(entryModel)
-        
             self.dismiss(animated: true, completion: nil)
         }
     }

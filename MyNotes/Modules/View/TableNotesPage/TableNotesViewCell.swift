@@ -27,13 +27,13 @@ class TableNotesViewCell: UITableViewCell {
     let photoImageView: UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 5
-        image.backgroundColor = .red
         return image
     }()
     
     let previewText: UITextView = {
         let text = UITextView()
         text.font = UIFont.tinyMediumSF
+        text.isEditable = false
         return text
     }()
     

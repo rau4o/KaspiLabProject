@@ -37,6 +37,7 @@ class CollectionNotesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        viewModel.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,4 +97,10 @@ extension CollectionNotesController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegateFlowLayout
 
 extension CollectionNotesController: UICollectionViewDelegateFlowLayout {
+}
+
+extension CollectionNotesController: TableNotesDelegate {
+    func reloadTableView() {
+        collectionView.reloadData()
+    }
 }

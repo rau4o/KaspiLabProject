@@ -8,16 +8,20 @@
 
 import UIKit
 import MapKit
-import MapViewPlus
-import CoreLocation
 import AnchoredBottomSheet
+import RealmSwift
 
 class MapController: UIViewController {
     
     // MARK: - Properties
     
-    lazy var mapView: MapViewPlus = {
-        let map = MapViewPlus()
+    var annotationEntries: Results<EntryModel>?
+    var viewModel = TableNotesViewModel()
+    var locationManager = CLLocationManager()
+    var currentLocation: CLLocation!
+    
+    lazy var mapView: MKMapView = {
+        let map = MKMapView()
         map.delegate = self
         return map
     }()
@@ -27,10 +31,12 @@ class MapController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        let annotations = [AnnotationPlus.init(viewModel: DefaultCalloutViewModel.init(title: "example", subtitle: "43 tam", imageType: .fromBundle(image: #imageLiteral(resourceName: "appImage")), theme: .light, detailButtonType: .info), coordinate: CLLocationCoordinate2DMake(50.85, 5.35))]
-        mapView.setup(withAnnotations: annotations)
+        locationManager.requestWhenInUseAuthorization()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        addAnnotation()
+    }
     // MARK: - Helper function
     
     private func configureUI() {
@@ -55,37 +61,54 @@ class MapController: UIViewController {
         bottomSheetViewController.delegate = self
         bottomSheetViewController.present(from: self)
     }
+    
+    private func getData() -> Results<EntryModel> {
+        return RealmService.shared.realm.objects(EntryModel.self)
+    }
+    
+    func addAnnotation() {
+//        annotationEntries = getData()
+//        
+//        if let annotationEnumerated = annotationEntries?.enumerated() {
+//            for (index, _) in annotationEnumerated {
+//            let annotation = MKPointAnnotation()
+//            
+//            if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
+//                CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
+//                guard let currentLocation = locationManager.location else {
+//                    return
+//                }
+////                guard let lat = annotationEntries?[index].coordinates[0].latitude else {return}
+////                guard let long = annotationEntries?[index].coordinates[0].longitude else {return}
+////                annotation.coordinate = CLLocationCoordinate2D(latitude: lat,
+////                                                               longitude: long)
+//                }
+//                mapView.addAnnotation(annotation)
+//            }
+//        }
+    }
 }
 
 // MARK: - MapViewPlusDelegate
 
-extension MapController: MapViewPlusDelegate {
-    
-    func mapView(_ mapView: MapViewPlus, imageFor annotation: AnnotationPlus) -> UIImage {
-        return #imageLiteral(resourceName: "PlaceholderDark")
-    }
-    
-    func mapView(_ mapView: MapViewPlus, calloutViewFor annotationView: AnnotationViewPlus) -> CalloutViewPlus{
-        let calloutView = MapViewPlusTemplateHelper.defaultCalloutView
-        mapView.calloutViewCustomizerDelegate = calloutView
-        mapView.anchorViewCustomizerDelegate = calloutView
-        calloutView.delegate = self
+extension MapController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: String(annotation.hash))
+        pinView.pinTintColor = UIColor.orange
+        let rightBtn = UIButton(type: .detailDisclosure)
         
-        return calloutView
+        pinView.animatesDrop = true
+        pinView.canShowCallout = true
+        pinView.rightCalloutAccessoryView = rightBtn
+        return pinView
     }
     
-    func mapView(_ mapView: MapViewPlus, didAddAnnotations annotations: [AnnotationPlus]) {
-        mapView.showAnnotations(annotations, animated: true)
-    }
-}
-
-// MARK: - DefaultCalloutViewDelegate
-
-extension MapController: DefaultCalloutViewDelegate {
-    func buttonDetailTapped(with viewModel: DefaultCalloutViewModelProtocol, buttonType: DefaultCalloutViewButtonType) {
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         presentModalWithStackView()
     }
 }
+
+
 
 // MARK: - BottomSheetViewControllerDelegate
 

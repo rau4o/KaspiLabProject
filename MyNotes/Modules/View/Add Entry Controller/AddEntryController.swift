@@ -54,13 +54,32 @@ class AddEntryController: UIViewController {
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: startingYPos, width: screenSize.width, height: 50))
         
         let navItem = UINavigationItem(title: "Publish new Entry")
-        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(backAction(_:)))
-        navItem.rightBarButtonItem = doneItem
+        let backItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(backAction(_:)))
+        let saveItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(saveAction(_:)))
+        navItem.leftBarButtonItem = backItem
+        navItem.rightBarButtonItem = saveItem
         navBar.setItems([navItem], animated: false)
         self.view.addSubview(navBar)
     }
     
     @objc func backAction(_ sender: UINavigationItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func saveAction(_ sender: UINavigationItem) {
+        let entryModel = EntryModel()
+                    
+        entryModel.text = self.addEntryView.entryTextView.text
+        let imagesArr = self.addEntryView.images
+        for image in imagesArr {
+            let pictureModel = Picture(image: image)
+            entryModel.pictures.append(pictureModel)
+            pictureModel.entry = entryModel
+        }
+//            let model = Location(long: 2.1, lat: 22.2)
+//            entryModel.coordinates.append(model)
+//            model.entry = entryModel
+        RealmService.shared.create(entryModel)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -78,26 +97,26 @@ class AddEntryController: UIViewController {
         viewModel.didFinishLoadData = { [weak self] in
             guard let self = self else {return}
             self.viewModel.textStoryViewModel = self.addEntryView.entryTextView.text
-            self.viewModel.dateTextViewModel = self.addEntryView.dateText
+//            self.viewModel.dateTextViewModel = self.addEntryView.dateText
         }
         
-        addEntryView.saveAction = { [weak self] in
-            guard let self = self else { return }
-            let entryModel = EntryModel()
-            
-            entryModel.text = self.addEntryView.entryTextView.text
-            let imagesArr = self.addEntryView.images
-            for image in imagesArr {
-                let pictureModel = Picture(image: image)
-                entryModel.pictures.append(pictureModel)
-                pictureModel.entry = entryModel
-            }
-//            let model = Location(long: 2.1, lat: 22.2)
-//            entryModel.coordinates.append(model)
-//            model.entry = entryModel
-            RealmService.shared.create(entryModel)
-            self.dismiss(animated: true, completion: nil)
-        }
+//        addEntryView.saveAction = { [weak self] in
+//            guard let self = self else { return }
+//            let entryModel = EntryModel()
+//
+//            entryModel.text = self.addEntryView.entryTextView.text
+//            let imagesArr = self.addEntryView.images
+//            for image in imagesArr {
+//                let pictureModel = Picture(image: image)
+//                entryModel.pictures.append(pictureModel)
+//                pictureModel.entry = entryModel
+//            }
+////            let model = Location(long: 2.1, lat: 22.2)
+////            entryModel.coordinates.append(model)
+////            model.entry = entryModel
+//            RealmService.shared.create(entryModel)
+//            self.dismiss(animated: true, completion: nil)
+//        }
     }
 }
 

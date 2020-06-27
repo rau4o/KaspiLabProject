@@ -10,6 +10,8 @@ import UIKit
 import Photos
 import MapKit
 
+private let cellId = "cell"
+
 class AddEntryView: BaseView {
     
     // MARK: - Properties
@@ -18,24 +20,27 @@ class AddEntryView: BaseView {
     var imagePicker = UIImagePickerController()
     var backButtonAction: (() -> Void)?
     var cameraAction: (() -> Void)?
-    var saveAction: (() -> Void)?
     var showLocationAction: (() -> Void)?
     var showPhotoLibrary: (() -> Void)?
     var images: [UIImage] = []
-    let placemarks: [MKPlacemark] = []
+    var placemarks: [MKPlacemark] = []
     var startWithCamera = false
     
-    var textDesc: String = "" {
-        didSet {
-            entryTextView.text = textDesc
-        }
-    }
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(LocationCell.self, forCellReuseIdentifier: cellId)
+        return tableView
+    }()
     
-    var dateText: String = "" {
-        didSet {
-            dateTextField.text = dateText
-        }
-    }
+    lazy var locationInputTextField: UITextField = {
+        let text = UITextField()
+        text.placeholder = "Enter your location"
+        text.backgroundColor = .lightGray
+        text.delegate = self
+        return text
+    }()
     
     let addPhotoButton: UIButton = {
         let button = UIButton()
@@ -49,21 +54,6 @@ class AddEntryView: BaseView {
         button.setImage(UIImage(named: "back"), for: .normal)
         button.addTarget(self, action: #selector(handleBackButton(_:)), for: .touchUpInside)
         return button
-    }()
-    
-    private var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.backgroundColor = .clear
-        scrollView.isScrollEnabled = true
-        return scrollView
-    }()
-    
-    lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [])
-        stackView.axis = .horizontal
-        stackView.spacing = 10
-        stackView.alignment = .fill
-        return stackView
     }()
     
     let saveButton: UIButton = {
@@ -87,7 +77,7 @@ class AddEntryView: BaseView {
         datePicker.backgroundColor = .white
         return datePicker
     }()
-    
+
     let dateTextField: UITextField = {
         let text = UITextField()
         text.backgroundColor = .black
@@ -117,22 +107,21 @@ class AddEntryView: BaseView {
     override func setupViews() {
         layoutUI()
         imagePicker.delegate = self
-        dateTextField.isHidden = true
     }
     
     // MARK: - Helper function
     
     private func layoutUI() {
         
-        [addPhotoButton,entryTextView, separatorLine].forEach {
+        [addPhotoButton,entryTextView, separatorLine, locationInputTextField, tableView].forEach {
             addSubview($0)
         }
         
         addPhotoButton.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(65)
             make.left.equalToSuperview().offset(20)
-            make.height.equalTo(70)
-            make.width.equalTo(70)
+            make.height.equalTo(80)
+            make.width.equalTo(80)
         }
         
         entryTextView.snp.makeConstraints { (make) in
@@ -148,58 +137,33 @@ class AddEntryView: BaseView {
             make.top.equalTo(entryTextView.snp.bottom).offset(10)
         }
         
-//        [scrollView, titleContainerView, backButton, entryTextView, saveButton, cameraButton,dateTextField].forEach {
-//            addSubview($0)
-//        }
+        locationInputTextField.snp.makeConstraints { (make) in
+            make.top.equalTo(separatorLine.snp.bottom).offset(10)
+            make.left.right.equalToSuperview().inset(50)
+            make.height.equalTo(50)
+        }
         
+        tableView.snp.makeConstraints { (make) in
+            make.top.equalTo(locationInputTextField.snp.bottom).offset(10)
+            make.left.right.bottom.equalToSuperview().inset(10)
+        }
+    }
+    
+    func searchBy(naturalLanguageQuery: String, completion: @escaping([MKPlacemark]) -> Void) {
+        var results = [MKPlacemark]()
+        let request = MKLocalSearch.Request()
+//        request.region = mapView.region
+        request.naturalLanguageQuery = naturalLanguageQuery
         
-//        scrollView.addSubview(stackView)
-//
-//        titleContainerView.snp.makeConstraints { (make) in
-//            make.top.equalToSuperview().inset(50)
-//            make.left.right.equalToSuperview().inset(80)
-//        }
-//
-//        backButton.snp.makeConstraints { (make) in
-//            make.left.equalToSuperview().inset(30)
-//            make.top.equalToSuperview().inset(20)
-//            make.height.width.equalTo(50)
-//        }
-//
-//        saveButton.snp.makeConstraints { (make) in
-//            make.right.equalToSuperview().inset(30)
-//            make.top.equalToSuperview().inset(20)
-//            make.height.width.equalTo(50)
-//        }
-//
-//        entryTextView.snp.makeConstraints { (make) in
-//            make.top.equalTo(titleTextField.snp.bottom).offset(50)
-//            make.left.right.equalToSuperview().inset(50)
-//            make.height.equalTo(150)
-//        }
-//
-//        dateTextField.snp.makeConstraints { (make) in
-//            make.top.equalTo(entryTextView.snp.bottom).offset(30)
-//            make.left.right.equalToSuperview().inset(50)
-//            make.height.equalTo(50)
-//        }
-//
-//        scrollView.snp.makeConstraints { (make) in
-//            make.bottom.equalTo(cameraButton.snp.top)
-//            make.height.equalTo(70)
-//            make.width.equalToSuperview()
-//            make.left.right.equalToSuperview()
-//        }
-//
-//        stackView.snp.makeConstraints { (make) in
-//            make.edges.equalTo(scrollView)
-//        }
-//
-//        cameraButton.snp.makeConstraints { (make) in
-//            make.top.equalTo(scrollView.snp.bottom).offset(5)
-//            make.left.right.bottom.equalToSuperview()
-//            make.height.equalTo(50)
-//        }
+        let search = MKLocalSearch(request: request)
+        search.start { (response, error) in
+            guard let response = response else { return }
+            
+            response.mapItems.forEach { (item) in
+                results.append(item.placemark)
+            }
+            completion(results)
+        }
     }
     
     // MARK: - Selectors
@@ -209,10 +173,6 @@ class AddEntryView: BaseView {
     }
     
     @objc private func handleSaveAction(_ sender: UIButton) {
-        saveAction?()
-        images.removeAll()
-        entryTextView.text = ""
-        stackView.removeFullyAllArrangedSubviews()
     }
     
     @objc private func handleShowLocationAction(_ sender: UIButton) {
@@ -238,7 +198,6 @@ extension AddEntryView: UIImagePickerControllerDelegate {
             imageView.image = choosenImage
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
-            stackView.addArrangedSubview(imageView)
             addPhotoButton.setImage(choosenImage.withRenderingMode(.alwaysOriginal), for: .normal)
             
             if let asset = info[UIImagePickerController.InfoKey.phAsset] as? PHAsset {
@@ -254,3 +213,41 @@ extension AddEntryView: UIImagePickerControllerDelegate {
 extension AddEntryView: UINavigationControllerDelegate {
     // activate UIImagePicker
 }
+
+// MARK: - UITableViewDelegate
+
+extension AddEntryView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension AddEntryView: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return placemarks.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell: LocationCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? LocationCell {
+            cell.placemark = placemarks[indexPath.row]
+            return cell
+        }
+        return UITableViewCell()
+    }
+}
+// MARK: - UITextFieldDelegate
+
+extension AddEntryView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let query = textField.text else { return false }
+        searchBy(naturalLanguageQuery: query) { (results) in
+            self.placemarks = results
+            self.tableView.reloadData()
+        }
+        return true
+    }
+}
+

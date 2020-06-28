@@ -15,7 +15,8 @@ class DescriptionTableViewCell: UITableViewCell {
     lazy private var entryTextView: UITextView = {
         let text = UITextView()
         text.isEditable = false
-        text.font = UIFont(name: "SFProDisplay-Medium", size: 15)
+        text.isScrollEnabled = false
+        text.font = UIFont(name: "SFProDisplay-Medium", size: 17)
         return text
     }()
     

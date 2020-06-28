@@ -77,9 +77,6 @@ class AddEntryController: UIViewController {
             entryModel.pictures.append(pictureModel)
             pictureModel.entry = entryModel
         }
-//            let model = Location(long: 2.1, lat: 22.2)
-//            entryModel.coordinates.append(model)
-//            model.entry = entryModel
         RealmService.shared.create(entryModel)
         self.dismiss(animated: true, completion: nil)
     }

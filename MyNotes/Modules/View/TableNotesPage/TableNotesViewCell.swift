@@ -33,13 +33,13 @@ class TableNotesViewCell: UITableViewCell {
     let previewText: UITextView = {
         let text = UITextView()
         text.font = UIFont.tinyMediumSF
+        text.isScrollEnabled = false
         text.isEditable = false
         return text
     }()
     
     let locationLabel: UILabel = {
         let label = UILabel(font: UIFont.tinyMediumSF, textAlignment: .left)
-//        label.text = "address 4e to tam"
         label.textColor = .lightGray
         return label
     }()
@@ -75,10 +75,10 @@ class TableNotesViewCell: UITableViewCell {
         }
         
         locationLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(previewText.snp.bottom).inset(5)
+            make.top.equalTo(previewText.snp.bottom)
             make.left.equalTo(photoImageView.snp.right).offset(5)
             make.right.equalTo(monthLabel.snp.left)
-            make.bottom.equalToSuperview().inset(5)
+            make.bottom.equalToSuperview()
         }
         
         monthLabel.snp.makeConstraints { (make) in

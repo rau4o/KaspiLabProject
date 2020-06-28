@@ -8,29 +8,39 @@
 
 import UIKit
 
-class HeaderDetailView: BaseView {
+class HeaderDetailView: UITableViewCell {
     
     // MARK: - Properties
     
-    let imageView: UIImageView = {
+    let mainImageView: UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFill
+//        image.contentMode = .scaleAspectFit
         return image
     }()
     
     // MARK: - Setup Views
-
-    override func setupViews() {
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Helper function
     
     private func configureUI() {
-        addSubview(imageView)
-        imageView.snp.makeConstraints { (make) in
+        [mainImageView].forEach {
+            addSubview($0)
+        }
+        mainImageView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
     }
-
+    
+    func configureDetailView(with model: EntryModel) {
+        mainImageView.image = model.pictures.first?.thumbnail()
+    }
 }

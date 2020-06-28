@@ -40,7 +40,6 @@ class MapLocationCell: UITableViewCell {
     }
     
     func configure(with location: String) {
-        
         // Get location
         let geocoder = CLGeocoder()
         

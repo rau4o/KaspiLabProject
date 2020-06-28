@@ -19,7 +19,7 @@ class StaticLabelViewCell: UITableViewCell {
     
     internal let staticLocationImage: UIImageView = {
         let image = UIImageView()
-//        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFit
         return image
     }()
     

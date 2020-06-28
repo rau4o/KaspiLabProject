@@ -22,7 +22,7 @@ class DetailEntryController: UIViewController {
         let descEntryHeight: CGFloat = 50
         let staticLabelHeight: CGFloat = 40
         let locationCellHeight: CGFloat = 200
-        let headerViewHeight: CGFloat = 150
+        let headerViewHeight: CGFloat = 200
         let addressEntryHeight: CGFloat = 50
     }
     
@@ -42,28 +42,35 @@ class DetailEntryController: UIViewController {
         tableView.register(AddressTableViewCell.self, forCellReuseIdentifier: Identifier().addressEntryCell)
         return tableView
     }()
-    
-    let backButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "back-1"), for: .normal)
-        button.addTarget(self, action: #selector(handleBackButton(_:)), for: .touchUpInside)
-        return button
-    }()
-    
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        setNavigationBar()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+    // MARK: - Helper Function
+
+    func setNavigationBar() {
+        let screenSize: CGRect = UIScreen.main.bounds
+        let startingYPos = UIApplication.shared.statusBarFrame.size.height
+        let navBar = UINavigationBar(frame: CGRect(x: 0, y: startingYPos, width: screenSize.width, height: 50))
+        let navItem = UINavigationItem(title: entryModel.datePrettyString())
+        let backItem = UIBarButtonItem(barButtonSystemItem: .close, target: nil, action: #selector(backAction(_:)))
+        navItem.leftBarButtonItem = backItem
+        navBar.setItems([navItem], animated: false)
+        self.view.addSubview(navBar)
     }
     
     // MARK: - Selectors
     
     @objc private func handleBackButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func backAction(_ sender: UINavigationItem) {
         self.dismiss(animated: true, completion: nil)
     }
 }
@@ -77,17 +84,10 @@ private extension DetailEntryController {
     }
     
     private func configureUI() {
-        [tableView, backButton].forEach {
-            view.addSubview($0)
-        }
+        view.addSubview(tableView)
         
         tableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
-        }
-        
-        backButton.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(20)
-            make.left.equalToSuperview().offset(10)
         }
     }
 }

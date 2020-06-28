@@ -14,7 +14,7 @@ class AddEntryViewModel {
     var entryModel: EntryModel? {
         didSet {
             guard let entryModel = entryModel else {return}
-            setupEntryModel(with: entryModel)
+//            setupEntryModel(with: entryModel)
             didFinishLoadData?()
         }
     }
@@ -30,16 +30,17 @@ class AddEntryViewModel {
 //        })
 //    }
     
-    private func setupEntryModel(with entryModel: EntryModel) {
-        DispatchQueue.main.async {
-            self.textStoryViewModel = entryModel.text
-            self.dateTextViewModel = entryModel.datePrettyString()
-            for image in self.imagesData {
-                let pictureModel = Picture(image: image)
-                entryModel.pictures.append(pictureModel)
-                pictureModel.entry = entryModel
-            }
-        }
-    }
+//    private func setupEntryModel(with entryModel: EntryModel) {
+//        DispatchQueue.main.async {
+//            self.textStoryViewModel = entryModel.text
+//            self.dateTextViewModel = entryModel.datePrettyString()
+//            self.
+//            for image in self.imagesData {
+//                let pictureModel = Picture(image: image)
+//                entryModel.pictures.append(pictureModel)
+//                pictureModel.entry = entryModel
+//            }
+//        }
+//    }
 }
 

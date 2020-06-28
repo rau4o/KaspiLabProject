@@ -37,6 +37,13 @@ class TableNotesViewCell: UITableViewCell {
         return text
     }()
     
+    let locationLabel: UILabel = {
+        let label = UILabel(font: UIFont.tinyMediumSF, textAlignment: .left)
+//        label.text = "address 4e to tam"
+        label.textColor = .lightGray
+        return label
+    }()
+    
     // MARK: - Init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -51,7 +58,7 @@ class TableNotesViewCell: UITableViewCell {
     // MARK: - Helper function
     
     private func layoutUI() {
-        [photoImageView, previewText, monthLabel, dayLabel, yearLabel].forEach {
+        [photoImageView, previewText, locationLabel, monthLabel, dayLabel, yearLabel].forEach {
             addSubview($0)
         }
         
@@ -61,9 +68,17 @@ class TableNotesViewCell: UITableViewCell {
         }
         
         previewText.snp.makeConstraints { (make) in
-            make.top.bottom.equalToSuperview().inset(5)
+            make.top.equalToSuperview().inset(5)
             make.left.equalTo(photoImageView.snp.right).offset(5)
             make.right.equalTo(monthLabel.snp.left)
+            make.bottom.equalTo(locationLabel.snp.top)
+        }
+        
+        locationLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(previewText.snp.bottom).inset(5)
+            make.left.equalTo(photoImageView.snp.right).offset(5)
+            make.right.equalTo(monthLabel.snp.left)
+            make.bottom.equalToSuperview().inset(5)
         }
         
         monthLabel.snp.makeConstraints { (make) in
@@ -95,6 +110,7 @@ class TableNotesViewCell: UITableViewCell {
             self.monthLabel.text = entryModel.monthPrettyString()
             self.yearLabel.text = entryModel.yearPrettyString()
             self.previewText.text = entryModel.text
+            self.locationLabel.text = entryModel.address
         }
     }
 }

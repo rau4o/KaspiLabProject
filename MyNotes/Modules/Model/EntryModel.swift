@@ -15,6 +15,7 @@ class EntryModel: Object {
     
     @objc dynamic var text = ""
     @objc dynamic var date = Date()
+    @objc dynamic var address = ""
     let pictures = List<Picture>()
 //    let coordinates = List<Location>()
     
@@ -44,23 +45,6 @@ class EntryModel: Object {
         return formatter.string(from: date)
     }
 }
-
-//class Location: Object {
-//    @objc dynamic var longitude = 0.0
-//    @objc dynamic var latitude = 0.0
-//    @objc dynamic var entry: EntryModel?
-//
-//    var coordinate: CLLocationCoordinate2D {
-//        return CLLocationCoordinate2D(
-//            latitude: latitude,
-//            longitude: longitude)
-//    }
-//    convenience init(long: Double, lat: Double) {
-//        self.init()
-//        longitude = long
-//        latitude = lat
-//    }
-//}
 
 class Picture: Object {
     

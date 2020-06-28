@@ -70,6 +70,7 @@ class AddEntryController: UIViewController {
         let entryModel = EntryModel()
                     
         entryModel.text = self.addEntryView.entryTextView.text
+        entryModel.address = self.addEntryView.addressLabel.text ?? "no address 😕"
         let imagesArr = self.addEntryView.images
         for image in imagesArr {
             let pictureModel = Picture(image: image)
@@ -94,12 +95,12 @@ class AddEntryController: UIViewController {
             self.present(self.addEntryView.imagePicker, animated: true, completion: nil)
         }
         
-        viewModel.didFinishLoadData = { [weak self] in
-            guard let self = self else {return}
-            self.viewModel.textStoryViewModel = self.addEntryView.entryTextView.text
-//            self.viewModel.dateTextViewModel = self.addEntryView.dateText
-        }
-        
+//        viewModel.didFinishLoadData = { [weak self] in
+//            guard let self = self else {return}
+//            self.viewModel.textStoryViewModel = self.addEntryView.entryTextView.text
+////            self.viewModel.dateTextViewModel = self.addEntryView.dateText
+//        }
+//        
 //        addEntryView.saveAction = { [weak self] in
 //            guard let self = self else { return }
 //            let entryModel = EntryModel()

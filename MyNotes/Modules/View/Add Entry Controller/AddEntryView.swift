@@ -102,6 +102,13 @@ class AddEntryView: BaseView {
         return view
     }()
     
+    let addressLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "SFProDisplay-Medium", size: 20)
+        label.backgroundColor = .lightGray
+        return label
+    }()
+    
     // MARK: - Setup Views
     
     override func setupViews() {
@@ -113,7 +120,7 @@ class AddEntryView: BaseView {
     
     private func layoutUI() {
         
-        [addPhotoButton,entryTextView, separatorLine, locationInputTextField, tableView].forEach {
+        [addPhotoButton, entryTextView, separatorLine, locationInputTextField, addressLabel, tableView].forEach {
             addSubview($0)
         }
         
@@ -143,8 +150,14 @@ class AddEntryView: BaseView {
             make.height.equalTo(50)
         }
         
+        addressLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(locationInputTextField.snp.bottom).offset(5)
+            make.left.right.equalToSuperview().inset(50)
+            make.height.equalTo(50)
+        }
+        
         tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(locationInputTextField.snp.bottom).offset(10)
+            make.top.equalTo(addressLabel.snp.bottom).offset(10)
             make.left.right.bottom.equalToSuperview().inset(10)
         }
     }
@@ -199,10 +212,6 @@ extension AddEntryView: UIImagePickerControllerDelegate {
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             addPhotoButton.setImage(choosenImage.withRenderingMode(.alwaysOriginal), for: .normal)
-            
-            if let asset = info[UIImagePickerController.InfoKey.phAsset] as? PHAsset {
-                print("============> \(asset.location?.coordinate.longitude ?? 0) \(asset.location?.coordinate.latitude ?? 0)")
-            }
             imagePicker.dismiss(animated: true, completion: nil)
         }
     }
@@ -218,7 +227,9 @@ extension AddEntryView: UINavigationControllerDelegate {
 
 extension AddEntryView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        let placemark = placemarks[indexPath.row]
+        addressLabel.text = placemark.address
+        print(placemark.address)
     }
 }
 
@@ -243,7 +254,8 @@ extension AddEntryView: UITableViewDataSource {
 extension AddEntryView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let query = textField.text else { return false }
-        searchBy(naturalLanguageQuery: query) { (results) in
+        searchBy(naturalLanguageQuery: query) { [weak self] (results) in
+            guard let self = self else {return}
             self.placemarks = results
             self.tableView.reloadData()
         }

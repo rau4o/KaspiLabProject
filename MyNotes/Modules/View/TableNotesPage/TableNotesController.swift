@@ -96,7 +96,11 @@ private extension TableNotesController {
 
 extension TableNotesController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        let detailController = DetailEntryController()
+        var entry = viewModel.getData(at: indexPath.row)
+        detailController.entryModel = entry
+        detailController.modalPresentationStyle = .fullScreen
+        self.present(detailController, animated: true, completion: nil)
     }
 }
 

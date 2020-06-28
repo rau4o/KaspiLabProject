@@ -41,6 +41,10 @@
 		AE5A99CD2497C11A0050D331 /* Device+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99CC2497C11A0050D331 /* Device+Constants.swift */; };
 		AE7E689C24A798AE0076E280 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E689B24A798AE0076E280 /* LocationCell.swift */; };
 		AE7E689E24A7994B0076E280 /* MKPlacemark + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E689D24A7994B0076E280 /* MKPlacemark + Extension.swift */; };
+		AE7E68A124A87F0B0076E280 /* DetailEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E68A024A87F0B0076E280 /* DetailEntryController.swift */; };
+		AE7E68A424A880980076E280 /* HeaderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E68A324A880980076E280 /* HeaderDetailView.swift */; };
+		AE7E68A624A88DE80076E280 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E68A524A88DE80076E280 /* DescriptionTableViewCell.swift */; };
+		AE7E68A924A891BD0076E280 /* MapLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E68A824A891BD0076E280 /* MapLocationCell.swift */; };
 		AE9303A8249CCC66001E4803 /* AddEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9303A7249CCC66001E4803 /* AddEntryView.swift */; };
 		AE9303AA249CD05C001E4803 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9303A9249CD05C001E4803 /* MapController.swift */; };
 		AE9303AC249CD06A001E4803 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9303AB249CD06A001E4803 /* CalendarController.swift */; };
@@ -95,6 +99,10 @@
 		AE5A99CC2497C11A0050D331 /* Device+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+Constants.swift"; sourceTree = "<group>"; };
 		AE7E689B24A798AE0076E280 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		AE7E689D24A7994B0076E280 /* MKPlacemark + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPlacemark + Extension.swift"; sourceTree = "<group>"; };
+		AE7E68A024A87F0B0076E280 /* DetailEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEntryController.swift; sourceTree = "<group>"; };
+		AE7E68A324A880980076E280 /* HeaderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderDetailView.swift; sourceTree = "<group>"; };
+		AE7E68A524A88DE80076E280 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		AE7E68A824A891BD0076E280 /* MapLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationCell.swift; sourceTree = "<group>"; };
 		AE9303A7249CCC66001E4803 /* AddEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryView.swift; sourceTree = "<group>"; };
 		AE9303A9249CD05C001E4803 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		AE9303AB249CD06A001E4803 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
@@ -241,6 +249,7 @@
 		AE4A32662483DE92003A355F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AE7E689F24A87EE20076E280 /* Detail Entry Page */,
 				AEE312F9249A8B7200804DAB /* AuthorizationProcces */,
 				AEE312FE249A915D00804DAB /* Calendar Controller */,
 				AEE312FD249A914D00804DAB /* Add Entry Controller */,
@@ -318,6 +327,25 @@
 				AE5A99BC2497B6AE0050D331 /* Fonts */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		AE7E689F24A87EE20076E280 /* Detail Entry Page */ = {
+			isa = PBXGroup;
+			children = (
+				AE7E68A224A880820076E280 /* View */,
+				AE7E68A024A87F0B0076E280 /* DetailEntryController.swift */,
+			);
+			path = "Detail Entry Page";
+			sourceTree = "<group>";
+		};
+		AE7E68A224A880820076E280 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AE7E68A524A88DE80076E280 /* DescriptionTableViewCell.swift */,
+				AE7E68A324A880980076E280 /* HeaderDetailView.swift */,
+				AE7E68A824A891BD0076E280 /* MapLocationCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		AEE312E4249A6EE700804DAB /* Tabbar+Extension */ = {
@@ -515,14 +543,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE7E68A424A880980076E280 /* HeaderDetailView.swift in Sources */,
 				AE5A99B62497B07B0050D331 /* UITextField + Extension .swift in Sources */,
 				AEE312FB249A8C8800804DAB /* CollectionNotesViewCell.swift in Sources */,
 				AE7E689E24A7994B0076E280 /* MKPlacemark + Extension.swift in Sources */,
 				AE4B2CF3249E8AD800DFE04F /* CustomDatePicker+Extension.swift in Sources */,
 				AE0118A3249926340080A333 /* MainRegistrationController.swift in Sources */,
 				AEE312EF249A7E8800804DAB /* UILabel + Extension.swift in Sources */,
+				AE7E68A624A88DE80076E280 /* DescriptionTableViewCell.swift in Sources */,
 				AEE312ED249A73D600804DAB /* TableNotesViewCell.swift in Sources */,
 				AEE312EB249A72C800804DAB /* CollectionNotesController.swift in Sources */,
+				AE7E68A124A87F0B0076E280 /* DetailEntryController.swift in Sources */,
 				AEE312F6249A893900804DAB /* EntryModel.swift in Sources */,
 				AE5A99AE2497AD6C0050D331 /* LoginController.swift in Sources */,
 				AEEED9B82497D806002BC43F /* RegistrationView.swift in Sources */,
@@ -543,6 +574,7 @@
 				AE4B2CF5249FA63D00DFE04F /* TableNotesViewModel.swift in Sources */,
 				AE5A99B92497B4A70050D331 /* Constants.swift in Sources */,
 				AEE312E8249A711400804DAB /* MainTabbarController.swift in Sources */,
+				AE7E68A924A891BD0076E280 /* MapLocationCell.swift in Sources */,
 				AEEED9B62497D741002BC43F /* RegistrationController.swift in Sources */,
 				AE5A99BB2497B4DB0050D331 /* UIColor+Extension.swift in Sources */,
 				AE0814E1249BDC0C00E3DF57 /* CustomTabBar.swift in Sources */,

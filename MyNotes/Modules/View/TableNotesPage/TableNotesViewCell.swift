@@ -110,7 +110,7 @@ class TableNotesViewCell: UITableViewCell {
             self.monthLabel.text = entryModel.monthPrettyString()
             self.yearLabel.text = entryModel.yearPrettyString()
             self.previewText.text = entryModel.text
-            self.locationLabel.text = entryModel.address
+            self.locationLabel.text = "\(entryModel.address)"
         }
     }
 }

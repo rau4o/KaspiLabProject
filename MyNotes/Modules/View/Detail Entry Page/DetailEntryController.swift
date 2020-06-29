@@ -66,10 +66,6 @@ class DetailEntryController: UIViewController {
     
     // MARK: - Selectors
     
-    @objc private func handleBackButton(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     @objc func backAction(_ sender: UINavigationItem) {
         self.dismiss(animated: true, completion: nil)
     }

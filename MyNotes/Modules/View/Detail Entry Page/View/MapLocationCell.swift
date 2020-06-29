@@ -38,11 +38,18 @@ class MapLocationCell: UITableViewCell {
             make.edges.equalToSuperview()
         }
     }
-    
+//    func configure(with model: EntryModel) {
+//        let annotation = MKPointAnnotation()
+//        annotation.coordinate = model.destinationCoordinates
+//        self.mapView.addAnnotation(annotation)
+////        self.mapView.selectAnnotation(annotation, animated: true)
+//    }
+//
     func configure(with location: String) {
-        // Get location
+
+//         Get location
         let geocoder = CLGeocoder()
-        
+
         print(location)
         geocoder.geocodeAddressString(location) { [weak self] (placemarks, error) in
             guard let self = self else {return}
@@ -50,19 +57,19 @@ class MapLocationCell: UITableViewCell {
                 print(error.localizedDescription)
                 return
             }
-            
+
             if let placemarks = placemarks {
                 // Get the first placemark
                 let placemark = placemarks[0]
-                
+
                 // Add annotation
                 let annotation = MKPointAnnotation()
-                
+
                 if let location = placemark.location {
                     // Display the annotation
                     annotation.coordinate = location.coordinate
                     self.mapView.addAnnotation(annotation)
-                    
+
                     // Set the zoom level
                     let region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 250, longitudinalMeters: 250)
                     self.mapView.setRegion(region, animated: false)

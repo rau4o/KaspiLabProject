@@ -9,6 +9,7 @@
 import UIKit
 
 private let cellId = "cellId"
+private let heightOfRow: CGFloat = 100
 
 class TableNotesController: UIViewController {
     
@@ -124,13 +125,12 @@ extension TableNotesController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return heightOfRow
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
         let pickUpLine = viewModel.getData(at: indexPath.row)
-        
         RealmService.shared.delete(pickUpLine)
         tableView.reloadData()
     }

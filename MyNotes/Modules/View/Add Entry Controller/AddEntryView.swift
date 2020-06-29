@@ -24,7 +24,11 @@ class AddEntryView: BaseView {
     var showPhotoLibrary: (() -> Void)?
     var images: [UIImage] = []
     var placemarks: [MKPlacemark] = []
+    var coordinateData: [CLLocationCoordinate2D] = []
     var startWithCamera = false
+//    var resultLocations: ((CLLocationCoordinate2D) -> Void)?
+    var long: Double?
+    var lat: Double?
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -109,6 +113,13 @@ class AddEntryView: BaseView {
         return label
     }()
     
+    let secondAddress: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "SFProDisplay-Medium", size: 20)
+        label.backgroundColor = .lightGray
+        return label
+    }()
+    
     // MARK: - Setup Views
     
     override func setupViews() {
@@ -120,7 +131,7 @@ class AddEntryView: BaseView {
     
     private func layoutUI() {
         
-        [addPhotoButton, entryTextView, separatorLine, locationInputTextField, addressLabel, tableView].forEach {
+        [addPhotoButton, entryTextView, separatorLine, locationInputTextField, addressLabel, secondAddress, tableView].forEach {
             addSubview($0)
         }
         
@@ -153,11 +164,17 @@ class AddEntryView: BaseView {
         addressLabel.snp.makeConstraints { (make) in
             make.top.equalTo(locationInputTextField.snp.bottom).offset(5)
             make.left.right.equalToSuperview().inset(50)
-            make.height.equalTo(50)
+            make.height.equalTo(25)
+        }
+        
+        secondAddress.snp.makeConstraints { (make) in
+            make.top.equalTo(addressLabel.snp.bottom)
+            make.left.right.equalToSuperview().inset(50)
+            make.height.equalTo(25)
         }
         
         tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(addressLabel.snp.bottom).offset(10)
+            make.top.equalTo(secondAddress.snp.bottom).offset(10)
             make.left.right.bottom.equalToSuperview().inset(10)
         }
     }
@@ -228,8 +245,15 @@ extension AddEntryView: UINavigationControllerDelegate {
 extension AddEntryView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let placemark = placemarks[indexPath.row]
-        addressLabel.text = placemark.address
-        print(placemark.address)
+//        addressLabel.text = "\(placemark.coordinate.latitude)"
+//        secondAddress.text = "\(placemark.coordinate.longitude)"
+        addressLabel.text = "\(placemark.title!)"
+//        long = placemark.coordinate.longitude
+//        lat = placemark.coordinate.latitude
+//        resultLocations = placemark.coordinate
+//        resultLocations?(placemark.coordinate)
+//        placemark.coordinate = placemark.coordinate
+//        print(placemark.address)
     }
 }
 

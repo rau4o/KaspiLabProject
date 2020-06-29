@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class AddEntryController: UIViewController {
     
@@ -17,11 +18,6 @@ class AddEntryController: UIViewController {
     let mapController = MapController()
     var isCallSetUP = true
     var intSelected: Int?
-//    let navBar = UINavigationBar()
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
     
     // MARK: - Life Cycle
 
@@ -52,7 +48,6 @@ class AddEntryController: UIViewController {
         let screenSize: CGRect = UIScreen.main.bounds
         let startingYPos = UIApplication.shared.statusBarFrame.size.height
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: startingYPos, width: screenSize.width, height: 50))
-        
         let navItem = UINavigationItem(title: "Publish new Entry")
         let backItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(backAction(_:)))
         let saveItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(saveAction(_:)))
@@ -68,9 +63,17 @@ class AddEntryController: UIViewController {
     
     @objc func saveAction(_ sender: UINavigationItem) {
         let entryModel = EntryModel()
-                    
         entryModel.text = self.addEntryView.entryTextView.text
-        entryModel.address = self.addEntryView.addressLabel.text ?? "no address 😕"
+//        let lat = self.addEntryView.addressLabel.text
+//        let lon = self.addEntryView.secondAddress.text
+        entryModel.address = self.addEntryView.addressLabel.text ?? "no address"
+//        entryModel.destinationCoordinates = CLLocationCoordinate2D(latitude: lat?.toDouble() ?? 0.0, longitude: lon?.toDouble() ?? 0.0)
+//        entryModel.destinationCoordinates = Double(coor)
+//        entryModel.destinationCoordinates = self.addEntryView.placemarks.first?.coordinate
+//        let coordinateData = self.addEntryView.coordinateData
+//        entryModel.destinationCoordinates = coordinateData.first
+//        entryModel.destinationCoordinates = coordinate
+//        entryModel.address = self.addEntryView.addressLabel.text ?? "no address 😕"
         let imagesArr = self.addEntryView.images
         for image in imagesArr {
             let pictureModel = Picture(image: image)
@@ -133,5 +136,10 @@ private extension AddEntryController {
             make.top.bottom.equalTo(view.safeAreaLayoutGuide)
             make.left.right.equalToSuperview()
         }
+    }
+}
+extension String {
+    func toDouble() -> Double? {
+        return NumberFormatter().number(from: self)?.doubleValue
     }
 }

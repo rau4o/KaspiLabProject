@@ -16,8 +16,8 @@ class EntryModel: Object {
     @objc dynamic var text = ""
     @objc dynamic var date = Date()
     @objc dynamic var address = ""
+    dynamic var destinationCoordinates: CLLocationCoordinate2D!
     let pictures = List<Picture>()
-//    let coordinates = List<Location>()
     
     func datePrettyString() -> String {
         let formatter = DateFormatter()

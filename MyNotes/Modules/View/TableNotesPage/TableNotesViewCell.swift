@@ -71,14 +71,14 @@ class TableNotesViewCell: UITableViewCell {
             make.top.equalToSuperview().inset(5)
             make.left.equalTo(photoImageView.snp.right).offset(5)
             make.right.equalTo(monthLabel.snp.left)
-            make.bottom.equalTo(locationLabel.snp.top)
+            make.bottom.equalTo(dayLabel.snp.bottom)
         }
         
         locationLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(previewText.snp.bottom)
+            make.top.equalTo(yearLabel.snp.top)
             make.left.equalTo(photoImageView.snp.right).offset(5)
             make.right.equalTo(monthLabel.snp.left)
-            make.bottom.equalToSuperview()
+            make.height.equalTo(21)
         }
         
         monthLabel.snp.makeConstraints { (make) in

@@ -24,11 +24,7 @@ class AddEntryView: BaseView {
     var showPhotoLibrary: (() -> Void)?
     var images: [UIImage] = []
     var placemarks: [MKPlacemark] = []
-    var coordinateData: [CLLocationCoordinate2D] = []
     var startWithCamera = false
-//    var resultLocations: ((CLLocationCoordinate2D) -> Void)?
-    var long: Double?
-    var lat: Double?
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -50,21 +46,6 @@ class AddEntryView: BaseView {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "plus_photo"), for: .normal)
         button.addTarget(self, action: #selector(handleShowImagePickerView(_:)), for: .touchUpInside)
-        return button
-    }()
-    
-    private let backButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "back"), for: .normal)
-        button.addTarget(self, action: #selector(handleBackButton(_:)), for: .touchUpInside)
-        return button
-    }()
-    
-    let saveButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Save", for: .normal)
-        button.backgroundColor = .purple
-        button.addTarget(self, action: #selector(handleSaveAction(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -198,13 +179,6 @@ class AddEntryView: BaseView {
     
     // MARK: - Selectors
     
-    @objc private func handleBackButton(_ sender: UIButton) {
-        backButtonAction?()
-    }
-    
-    @objc private func handleSaveAction(_ sender: UIButton) {
-    }
-    
     @objc private func handleShowLocationAction(_ sender: UIButton) {
         showLocationAction?()
     }
@@ -245,8 +219,6 @@ extension AddEntryView: UINavigationControllerDelegate {
 extension AddEntryView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let placemark = placemarks[indexPath.row]
-//        addressLabel.text = "\(placemark.coordinate.latitude)"
-//        secondAddress.text = "\(placemark.coordinate.longitude)"
         addressLabel.text = "\(placemark.title!)"
 //        long = placemark.coordinate.longitude
 //        lat = placemark.coordinate.latitude

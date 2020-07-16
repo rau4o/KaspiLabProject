@@ -48,8 +48,6 @@
 		AE7E68A924A891BD0076E280 /* MapLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E68A824A891BD0076E280 /* MapLocationCell.swift */; };
 		AE7E68AB24A8A5350076E280 /* StaticLabelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E68AA24A8A5350076E280 /* StaticLabelViewCell.swift */; };
 		AE7E68AD24A8C0A10076E280 /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E68AC24A8C0A10076E280 /* AddressTableViewCell.swift */; };
-		AE7E68B024A8C6DD0076E280 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E68AF24A8C6DD0076E280 /* ProfileController.swift */; };
-		AE7E68B424A8D2F90076E280 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E68B324A8D2F90076E280 /* ProfileHeaderView.swift */; };
 		AE9303A8249CCC66001E4803 /* AddEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9303A7249CCC66001E4803 /* AddEntryView.swift */; };
 		AE9303AC249CD06A001E4803 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9303AB249CD06A001E4803 /* CalendarController.swift */; };
 		AEE312E8249A711400804DAB /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312E7249A711400804DAB /* MainTabbarController.swift */; };
@@ -110,8 +108,6 @@
 		AE7E68A824A891BD0076E280 /* MapLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationCell.swift; sourceTree = "<group>"; };
 		AE7E68AA24A8A5350076E280 /* StaticLabelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticLabelViewCell.swift; sourceTree = "<group>"; };
 		AE7E68AC24A8C0A10076E280 /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
-		AE7E68AF24A8C6DD0076E280 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
-		AE7E68B324A8D2F90076E280 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		AE9303A7249CCC66001E4803 /* AddEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryView.swift; sourceTree = "<group>"; };
 		AE9303AB249CD06A001E4803 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		AEE312E7249A711400804DAB /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
@@ -258,7 +254,6 @@
 		AE4A32662483DE92003A355F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AE7E68AE24A8C6BA0076E280 /* Profile Page */,
 				AE7E689F24A87EE20076E280 /* Detail Entry Page */,
 				AEE312F9249A8B7200804DAB /* AuthorizationProcces */,
 				AEE312FE249A915D00804DAB /* Calendar Controller */,
@@ -357,15 +352,6 @@
 				AE7E68AC24A8C0A10076E280 /* AddressTableViewCell.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		AE7E68AE24A8C6BA0076E280 /* Profile Page */ = {
-			isa = PBXGroup;
-			children = (
-				AE7E68AF24A8C6DD0076E280 /* ProfileController.swift */,
-				AE7E68B324A8D2F90076E280 /* ProfileHeaderView.swift */,
-			);
-			path = "Profile Page";
 			sourceTree = "<group>";
 		};
 		AEE312E4249A6EE700804DAB /* Tabbar+Extension */ = {
@@ -560,14 +546,12 @@
 				AEE312FB249A8C8800804DAB /* CollectionNotesViewCell.swift in Sources */,
 				AE7E689E24A7994B0076E280 /* MKPlacemark + Extension.swift in Sources */,
 				AE4B2CF3249E8AD800DFE04F /* CustomDatePicker+Extension.swift in Sources */,
-				AE7E68B024A8C6DD0076E280 /* ProfileController.swift in Sources */,
 				AE0118A3249926340080A333 /* MainRegistrationController.swift in Sources */,
 				AEE312EF249A7E8800804DAB /* UILabel + Extension.swift in Sources */,
 				AE7E68A624A88DE80076E280 /* DescriptionTableViewCell.swift in Sources */,
 				AE7C074424C0F0F000B3CE9A /* Indent.swift in Sources */,
 				AEE312ED249A73D600804DAB /* TableNotesViewCell.swift in Sources */,
 				AEE312EB249A72C800804DAB /* CollectionNotesController.swift in Sources */,
-				AE7E68B424A8D2F90076E280 /* ProfileHeaderView.swift in Sources */,
 				AE7E68A124A87F0B0076E280 /* DetailEntryController.swift in Sources */,
 				AEE312F6249A893900804DAB /* EntryModel.swift in Sources */,
 				AE5A99AE2497AD6C0050D331 /* LoginController.swift in Sources */,

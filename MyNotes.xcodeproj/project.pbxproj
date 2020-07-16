@@ -39,6 +39,7 @@
 		AE5A99CA2497B7C30050D331 /* SFProDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AE5A99C32497B7C30050D331 /* SFProDisplay-Bold.otf */; };
 		AE5A99CB2497B7C30050D331 /* SFProText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AE5A99C42497B7C30050D331 /* SFProText-Semibold.otf */; };
 		AE5A99CD2497C11A0050D331 /* Device+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A99CC2497C11A0050D331 /* Device+Constants.swift */; };
+		AE7C074424C0F0F000B3CE9A /* Indent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C074324C0F0F000B3CE9A /* Indent.swift */; };
 		AE7E689C24A798AE0076E280 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E689B24A798AE0076E280 /* LocationCell.swift */; };
 		AE7E689E24A7994B0076E280 /* MKPlacemark + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E689D24A7994B0076E280 /* MKPlacemark + Extension.swift */; };
 		AE7E68A124A87F0B0076E280 /* DetailEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E68A024A87F0B0076E280 /* DetailEntryController.swift */; };
@@ -50,7 +51,6 @@
 		AE7E68B024A8C6DD0076E280 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E68AF24A8C6DD0076E280 /* ProfileController.swift */; };
 		AE7E68B424A8D2F90076E280 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E68B324A8D2F90076E280 /* ProfileHeaderView.swift */; };
 		AE9303A8249CCC66001E4803 /* AddEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9303A7249CCC66001E4803 /* AddEntryView.swift */; };
-		AE9303AA249CD05C001E4803 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9303A9249CD05C001E4803 /* MapController.swift */; };
 		AE9303AC249CD06A001E4803 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9303AB249CD06A001E4803 /* CalendarController.swift */; };
 		AEE312E8249A711400804DAB /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312E7249A711400804DAB /* MainTabbarController.swift */; };
 		AEE312EB249A72C800804DAB /* CollectionNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312EA249A72C800804DAB /* CollectionNotesController.swift */; };
@@ -101,6 +101,7 @@
 		AE5A99C32497B7C30050D331 /* SFProDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.otf"; sourceTree = "<group>"; };
 		AE5A99C42497B7C30050D331 /* SFProText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Semibold.otf"; sourceTree = "<group>"; };
 		AE5A99CC2497C11A0050D331 /* Device+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+Constants.swift"; sourceTree = "<group>"; };
+		AE7C074324C0F0F000B3CE9A /* Indent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indent.swift; sourceTree = "<group>"; };
 		AE7E689B24A798AE0076E280 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		AE7E689D24A7994B0076E280 /* MKPlacemark + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPlacemark + Extension.swift"; sourceTree = "<group>"; };
 		AE7E68A024A87F0B0076E280 /* DetailEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEntryController.swift; sourceTree = "<group>"; };
@@ -112,7 +113,6 @@
 		AE7E68AF24A8C6DD0076E280 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		AE7E68B324A8D2F90076E280 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		AE9303A7249CCC66001E4803 /* AddEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryView.swift; sourceTree = "<group>"; };
-		AE9303A9249CD05C001E4803 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		AE9303AB249CD06A001E4803 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		AEE312E7249A711400804DAB /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		AEE312EA249A72C800804DAB /* CollectionNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionNotesController.swift; sourceTree = "<group>"; };
@@ -232,6 +232,7 @@
 				AEE312F0249A7F3900804DAB /* UIFonts + Extension.swift */,
 				AE4B2CF2249E8AD800DFE04F /* CustomDatePicker+Extension.swift */,
 				AE7E689D24A7994B0076E280 /* MKPlacemark + Extension.swift */,
+				AE7C074324C0F0F000B3CE9A /* Indent.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -262,7 +263,6 @@
 				AEE312F9249A8B7200804DAB /* AuthorizationProcces */,
 				AEE312FE249A915D00804DAB /* Calendar Controller */,
 				AEE312FD249A914D00804DAB /* Add Entry Controller */,
-				AEE312FC249A914200804DAB /* MapController */,
 				AEE312E9249A72AD00804DAB /* CollectionNotesPage */,
 				AE0118A4249935E60080A333 /* TableNotesPage */,
 				AEE312E7249A711400804DAB /* MainTabbarController.swift */,
@@ -404,14 +404,6 @@
 				AEEED9B42497D70E002BC43F /* RegistrationPage */,
 			);
 			path = AuthorizationProcces;
-			sourceTree = "<group>";
-		};
-		AEE312FC249A914200804DAB /* MapController */ = {
-			isa = PBXGroup;
-			children = (
-				AE9303A9249CD05C001E4803 /* MapController.swift */,
-			);
-			path = MapController;
 			sourceTree = "<group>";
 		};
 		AEE312FD249A914D00804DAB /* Add Entry Controller */ = {
@@ -572,6 +564,7 @@
 				AE0118A3249926340080A333 /* MainRegistrationController.swift in Sources */,
 				AEE312EF249A7E8800804DAB /* UILabel + Extension.swift in Sources */,
 				AE7E68A624A88DE80076E280 /* DescriptionTableViewCell.swift in Sources */,
+				AE7C074424C0F0F000B3CE9A /* Indent.swift in Sources */,
 				AEE312ED249A73D600804DAB /* TableNotesViewCell.swift in Sources */,
 				AEE312EB249A72C800804DAB /* CollectionNotesController.swift in Sources */,
 				AE7E68B424A8D2F90076E280 /* ProfileHeaderView.swift in Sources */,
@@ -607,7 +600,6 @@
 				AE9303A8249CCC66001E4803 /* AddEntryView.swift in Sources */,
 				AE0814E5249BDC9700E3DF57 /* CustomTabbarItem.swift in Sources */,
 				AEE312F8249A8B2800804DAB /* RealmService.swift in Sources */,
-				AE9303AA249CD05C001E4803 /* MapController.swift in Sources */,
 				AEE31300249A923000804DAB /* AddEntryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

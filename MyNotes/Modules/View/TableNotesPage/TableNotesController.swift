@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import AnchoredBottomSheet
 
 private let cellId = "cellId"
-private let heightOfRow: CGFloat = 100
+private let heightOfRow: CGFloat = 120
 
 class TableNotesController: UIViewController {
     
@@ -19,6 +20,19 @@ class TableNotesController: UIViewController {
     let addEntryController = AddEntryController()
     let headerView = HeaderView()
     
+    private lazy var bottomSheetView: BottomSheetView = {
+        let config = BottomSheetViewConfiguration(contentView: tableView,
+                                                  parentViewController: self,
+                                                  defaultPosition: .middle(),
+                                                  positions: [.top(), .middle()],
+                                                  isSlidingToAppear: false,
+                                                  isPullIndicatorNeeded: true,
+                                                  isCloseButtonNeeded: false,
+                                                  isDismissAllowed: false)
+        let view = BottomSheetView(configuration: config)
+        return view
+    }()
+    
     lazy private var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(TableNotesViewCell.self, forCellReuseIdentifier: cellId)
@@ -27,7 +41,6 @@ class TableNotesController: UIViewController {
         tableView.separatorStyle = .none
         tableView.layer.cornerRadius = 10
         tableView.layer.backgroundColor = UIColor.cyan.cgColor
-        tableView.addShadow()
         return tableView
     }()
     
@@ -43,6 +56,7 @@ class TableNotesController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.getEntries()
+        bottomSheetView.didSetupConstraints = true
     }
     // MARK: - Helper function
     
@@ -71,24 +85,24 @@ private extension TableNotesController {
     }
     
     private func stylizeView() {
-        view.backgroundColor = .white
+        view.backgroundColor = .mainBlue
         headerView.backgroundColor = .mainBlue
     }
     
     private func layoutUI() {
-        [headerView, tableView].forEach {
+        [headerView, bottomSheetView].forEach {
             view.addSubview($0)
+        }
+        
+        bottomSheetView.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0)
         }
         
         headerView.snp.makeConstraints { (make) in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.left.right.equalToSuperview()
             make.height.equalTo(200)
-        }
-        
-        tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(headerView.snp.bottom)
-            make.left.bottom.right.equalToSuperview()
         }
     }
 }

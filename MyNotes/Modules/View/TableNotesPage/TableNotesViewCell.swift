@@ -12,25 +12,31 @@ class TableNotesViewCell: UITableViewCell {
     
     // MARK: - Properties
     
-    let yearLabel: UILabel = {
+    var cardView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 20
+        return view
+    }()
+    
+    private lazy var yearLabel: UILabel = {
         return UILabel(font: UIFont.mediumSF, textAlignment: .center)
     }()
     
-    let monthLabel: UILabel = {
+    private lazy var monthLabel: UILabel = {
         return UILabel(font: UIFont.mediumSF, textAlignment: .center)
     }()
     
-    let dayLabel: UILabel = {
+    private lazy var dayLabel: UILabel = {
         return UILabel(font: UIFont.largeMediumSF, textAlignment: .center)
     }()
     
-    let photoImageView: UIImageView = {
+    private lazy var photoImageView: UIImageView = {
         let image = UIImageView()
-        image.layer.cornerRadius = 5
+        image.layer.cornerRadius = 10
         return image
     }()
     
-    let previewText: UITextView = {
+    private lazy var previewText: UITextView = {
         let text = UITextView()
         text.font = UIFont.tinyMediumSF
         text.isScrollEnabled = false
@@ -38,7 +44,7 @@ class TableNotesViewCell: UITableViewCell {
         return text
     }()
     
-    let locationLabel: UILabel = {
+    private lazy var locationLabel: UILabel = {
         let label = UILabel(font: UIFont.tinyMediumSF, textAlignment: .left)
         label.textColor = .lightGray
         return label
@@ -51,6 +57,13 @@ class TableNotesViewCell: UITableViewCell {
         layoutUI()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        let padding = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+        bounds = bounds.inset(by: padding)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -58,45 +71,63 @@ class TableNotesViewCell: UITableViewCell {
     // MARK: - Helper function
     
     private func layoutUI() {
-        [photoImageView, previewText, locationLabel, monthLabel, dayLabel, yearLabel].forEach {
-            addSubview($0)
+        addSubview(cardView)
+        cardView.addSubview(photoImageView)
+        cardView.addSubview(previewText)
+        cardView.addSubview(locationLabel)
+        cardView.addSubview(monthLabel)
+        cardView.addSubview(dayLabel)
+        cardView.addSubview(yearLabel)
+        
+//        [photoImageView, previewText, locationLabel, monthLabel, dayLabel, yearLabel].forEach {
+//            cardView.addSubview($0)
+//        }
+        
+        cardView.snp.makeConstraints { (make) in
+            make.top.bottom.equalToSuperview()
+            make.left.equalToSuperview().inset(5)
+            make.right.equalToSuperview().inset(5)
         }
         
         photoImageView.snp.makeConstraints { (make) in
-            make.top.left.bottom.equalToSuperview().inset(5)
+            make.top.equalTo(cardView.snp.top).inset(5)
+            make.left.equalTo(cardView.snp.left).inset(5)
+            make.bottom.equalTo(cardView.snp.bottom).inset(5)
             make.width.equalTo(100)
         }
         
         previewText.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().inset(5)
+            make.top.equalTo(cardView.snp.top).inset(5)
             make.left.equalTo(photoImageView.snp.right).offset(5)
             make.right.equalTo(monthLabel.snp.left)
             make.bottom.equalTo(dayLabel.snp.bottom)
         }
-        
+
         locationLabel.snp.makeConstraints { (make) in
             make.top.equalTo(yearLabel.snp.top)
             make.left.equalTo(photoImageView.snp.right).offset(5)
             make.right.equalTo(monthLabel.snp.left)
             make.height.equalTo(21)
         }
-        
+
         monthLabel.snp.makeConstraints { (make) in
-            make.top.right.equalToSuperview().inset(5)
+            make.top.equalTo(cardView.snp.top).inset(5)
+            make.right.equalTo(cardView.snp.right).inset(5)
             make.height.equalTo(21)
             make.width.equalTo(60)
         }
 
         dayLabel.snp.makeConstraints { (make) in
             make.top.equalTo(monthLabel.snp.bottom)
-            make.right.equalToSuperview().inset(5)
+            make.right.equalTo(cardView.snp.right).inset(5)
             make.height.equalTo(50)
             make.width.equalTo(60)
         }
 
         yearLabel.snp.makeConstraints { (make) in
             make.top.equalTo(dayLabel.snp.bottom)
-            make.bottom.right.equalToSuperview().inset(5)
+            make.bottom.equalTo(cardView.snp.bottom).inset(5)
+            make.right.equalTo(cardView.snp.right).inset(5)
             make.width.equalTo(60)
         }
     }

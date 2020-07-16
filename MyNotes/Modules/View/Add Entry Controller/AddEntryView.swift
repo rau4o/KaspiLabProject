@@ -163,7 +163,6 @@ class AddEntryView: BaseView {
     func searchBy(naturalLanguageQuery: String, completion: @escaping([MKPlacemark]) -> Void) {
         var results = [MKPlacemark]()
         let request = MKLocalSearch.Request()
-//        request.region = mapView.region
         request.naturalLanguageQuery = naturalLanguageQuery
         
         let search = MKLocalSearch(request: request)
@@ -220,12 +219,6 @@ extension AddEntryView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let placemark = placemarks[indexPath.row]
         addressLabel.text = "\(placemark.title!)"
-//        long = placemark.coordinate.longitude
-//        lat = placemark.coordinate.latitude
-//        resultLocations = placemark.coordinate
-//        resultLocations?(placemark.coordinate)
-//        placemark.coordinate = placemark.coordinate
-//        print(placemark.address)
     }
 }
 

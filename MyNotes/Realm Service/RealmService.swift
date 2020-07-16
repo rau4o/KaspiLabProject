@@ -19,10 +19,11 @@ class RealmService {
     
     func create<T: Object>(_ object: T) {
         do {
-            try! realm.write {
+            try realm.write {
                 realm.add(object)
             }
-        } catch {
+        }
+        catch {
             print(error.localizedDescription)
         }
     }

@@ -15,7 +15,6 @@ class AddEntryController: UIViewController {
     
     var addEntryView = AddEntryView()
     var viewModel = AddEntryViewModel()
-    let mapController = MapController()
     var isCallSetUP = true
     var intSelected: Int?
     
@@ -44,7 +43,7 @@ class AddEntryController: UIViewController {
     
     // MARK: - Helper function
     
-    func setNavigationBar() {
+    private func setNavigationBar() {
         let screenSize: CGRect = UIScreen.main.bounds
         let startingYPos = UIApplication.shared.statusBarFrame.size.height
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: startingYPos, width: screenSize.width, height: 50))
@@ -64,16 +63,7 @@ class AddEntryController: UIViewController {
     @objc func saveAction(_ sender: UINavigationItem) {
         let entryModel = EntryModel()
         entryModel.text = self.addEntryView.entryTextView.text
-//        let lat = self.addEntryView.addressLabel.text
-//        let lon = self.addEntryView.secondAddress.text
         entryModel.address = self.addEntryView.addressLabel.text ?? "no address"
-//        entryModel.destinationCoordinates = CLLocationCoordinate2D(latitude: lat?.toDouble() ?? 0.0, longitude: lon?.toDouble() ?? 0.0)
-//        entryModel.destinationCoordinates = Double(coor)
-//        entryModel.destinationCoordinates = self.addEntryView.placemarks.first?.coordinate
-//        let coordinateData = self.addEntryView.coordinateData
-//        entryModel.destinationCoordinates = coordinateData.first
-//        entryModel.destinationCoordinates = coordinate
-//        entryModel.address = self.addEntryView.addressLabel.text ?? "no address 😕"
         let imagesArr = self.addEntryView.images
         for image in imagesArr {
             let pictureModel = Picture(image: image)

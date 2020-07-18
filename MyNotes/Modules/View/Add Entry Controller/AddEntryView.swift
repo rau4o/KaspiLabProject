@@ -9,6 +9,7 @@
 import UIKit
 import Photos
 import MapKit
+import AnchoredBottomSheet
 
 private let cellId = "cell"
 
@@ -20,8 +21,8 @@ class AddEntryView: BaseView {
     var imagePicker = UIImagePickerController()
     var backButtonAction: (() -> Void)?
     var cameraAction: (() -> Void)?
-    var showLocationAction: (() -> Void)?
     var showPhotoLibrary: (() -> Void)?
+    var showBottomSheet: (() -> Void)?
     var images: [UIImage] = []
     var placemarks: [MKPlacemark] = []
     var startWithCamera = false
@@ -31,6 +32,7 @@ class AddEntryView: BaseView {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(LocationCell.self, forCellReuseIdentifier: cellId)
+        tableView.isHidden = true
         return tableView
     }()
     
@@ -49,18 +51,10 @@ class AddEntryView: BaseView {
         return button
     }()
     
-    let entryTextView: UITextView = {
+    lazy var entryTextView: UITextView = {
         let text = UITextView()
-        text.backgroundColor = .purple
         text.font = UIFont(name: "SFProDisplay-Medium", size: 15)
         return text
-    }()
-    
-    let datePicker: UIDatePicker = {
-        let datePicker = UIDatePicker()
-        datePicker.datePickerMode = .date
-        datePicker.backgroundColor = .white
-        return datePicker
     }()
 
     let dateTextField: UITextField = {
@@ -69,14 +63,6 @@ class AddEntryView: BaseView {
         text.textColor = .white
         text.font = UIFont(name: "SFProDisplay-Medium", size: 25)
         return text
-    }()
-    
-    let locationButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("location", for: .normal)
-        button.addTarget(self, action: #selector(handleShowLocationAction(_:)), for: .touchUpInside)
-        button.backgroundColor = .red
-        return button
     }()
     
     let imageView = UIImageView()
@@ -104,61 +90,11 @@ class AddEntryView: BaseView {
     // MARK: - Setup Views
     
     override func setupViews() {
-        layoutUI()
+        initialSetup()
         imagePicker.delegate = self
     }
     
     // MARK: - Helper function
-    
-    private func layoutUI() {
-        
-        [addPhotoButton, entryTextView, separatorLine, locationInputTextField, addressLabel, secondAddress, tableView].forEach {
-            addSubview($0)
-        }
-        
-        addPhotoButton.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(65)
-            make.left.equalToSuperview().offset(20)
-            make.height.equalTo(80)
-            make.width.equalTo(80)
-        }
-        
-        entryTextView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(50)
-            make.left.equalTo(addPhotoButton.snp.right).offset(20)
-            make.height.equalTo(100)
-            make.right.equalToSuperview().inset(10)
-        }
-        
-        separatorLine.snp.makeConstraints { (make) in
-            make.height.equalTo(0.8)
-            make.left.right.equalToSuperview()
-            make.top.equalTo(entryTextView.snp.bottom).offset(10)
-        }
-        
-        locationInputTextField.snp.makeConstraints { (make) in
-            make.top.equalTo(separatorLine.snp.bottom).offset(10)
-            make.left.right.equalToSuperview().inset(50)
-            make.height.equalTo(50)
-        }
-        
-        addressLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(locationInputTextField.snp.bottom).offset(5)
-            make.left.right.equalToSuperview().inset(50)
-            make.height.equalTo(25)
-        }
-        
-        secondAddress.snp.makeConstraints { (make) in
-            make.top.equalTo(addressLabel.snp.bottom)
-            make.left.right.equalToSuperview().inset(50)
-            make.height.equalTo(25)
-        }
-        
-        tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(secondAddress.snp.bottom).offset(10)
-            make.left.right.bottom.equalToSuperview().inset(10)
-        }
-    }
     
     func searchBy(naturalLanguageQuery: String, completion: @escaping([MKPlacemark]) -> Void) {
         var results = [MKPlacemark]()
@@ -177,10 +113,6 @@ class AddEntryView: BaseView {
     }
     
     // MARK: - Selectors
-    
-    @objc private func handleShowLocationAction(_ sender: UIButton) {
-        showLocationAction?()
-    }
     
     @objc private func handleShowImagePickerView(_ sender: UIButton) {
         imagePicker.sourceType = .photoLibrary
@@ -243,12 +175,76 @@ extension AddEntryView: UITableViewDataSource {
 extension AddEntryView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let query = textField.text else { return false }
-        searchBy(naturalLanguageQuery: query) { [weak self] (results) in
-            guard let self = self else {return}
-            self.placemarks = results
-            self.tableView.reloadData()
+        UIView.animate(withDuration: 0.5) {
+            self.tableView.isHidden = false
+        }
+        DispatchQueue.global(qos: .utility).async {
+            self.searchBy(naturalLanguageQuery: query) { [weak self] (results) in
+                guard let self = self else {return}
+                self.placemarks = results
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
         }
         return true
     }
 }
 
+// MARK: - LayoutUI
+
+private extension AddEntryView {
+    func initialSetup() {
+        layoutUI()
+    }
+    
+    private func layoutUI() {
+        
+        [addPhotoButton, entryTextView, separatorLine, locationInputTextField, addressLabel, secondAddress, tableView].forEach {
+            addSubview($0)
+        }
+        
+        addPhotoButton.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(65)
+            make.left.equalToSuperview().offset(20)
+            make.height.equalTo(80)
+            make.width.equalTo(80)
+        }
+        
+        entryTextView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(50)
+            make.left.equalTo(addPhotoButton.snp.right).offset(20)
+            make.height.equalTo(100)
+            make.right.equalToSuperview().inset(10)
+        }
+        
+        separatorLine.snp.makeConstraints { (make) in
+            make.height.equalTo(0.8)
+            make.left.right.equalToSuperview()
+            make.top.equalTo(entryTextView.snp.bottom).offset(10)
+        }
+        
+        locationInputTextField.snp.makeConstraints { (make) in
+            make.top.equalTo(separatorLine.snp.bottom).offset(10)
+            make.left.right.equalToSuperview().inset(50)
+            make.height.equalTo(50)
+        }
+        
+        addressLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(locationInputTextField.snp.bottom).offset(5)
+            make.left.right.equalToSuperview().inset(50)
+            make.height.equalTo(25)
+        }
+        
+        secondAddress.snp.makeConstraints { (make) in
+            make.top.equalTo(addressLabel.snp.bottom)
+            make.left.right.equalToSuperview().inset(50)
+            make.height.equalTo(25)
+        }
+        
+        tableView.snp.makeConstraints { (make) in
+            make.top.equalTo(secondAddress.snp.bottom).offset(10)
+            make.left.right.bottom.equalToSuperview().inset(10)
+        }
+    }
+}

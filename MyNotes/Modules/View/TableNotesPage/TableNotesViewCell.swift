@@ -14,7 +14,6 @@ class TableNotesViewCell: UITableViewCell {
     
     var cardView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 20
         return view
     }()
     
@@ -32,15 +31,15 @@ class TableNotesViewCell: UITableViewCell {
     
     private lazy var photoImageView: UIImageView = {
         let image = UIImageView()
-        image.layer.cornerRadius = 10
         return image
     }()
     
-    private lazy var previewText: UITextView = {
+    private var previewText: UITextView = {
         let text = UITextView()
         text.font = UIFont.tinyMediumSF
         text.isScrollEnabled = false
         text.isEditable = false
+        text.isSelectable = true
         return text
     }()
     
@@ -72,21 +71,14 @@ class TableNotesViewCell: UITableViewCell {
     
     private func layoutUI() {
         addSubview(cardView)
-        cardView.addSubview(photoImageView)
-        cardView.addSubview(previewText)
-        cardView.addSubview(locationLabel)
-        cardView.addSubview(monthLabel)
-        cardView.addSubview(dayLabel)
-        cardView.addSubview(yearLabel)
-        
-//        [photoImageView, previewText, locationLabel, monthLabel, dayLabel, yearLabel].forEach {
-//            cardView.addSubview($0)
-//        }
+        [photoImageView, previewText, locationLabel, monthLabel, dayLabel, yearLabel].forEach {
+            cardView.addSubview($0)
+        }
         
         cardView.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
-            make.left.equalToSuperview().inset(5)
-            make.right.equalToSuperview().inset(5)
+            make.left.equalToSuperview().offset(5)
+            make.right.equalToSuperview().offset(5)
         }
         
         photoImageView.snp.makeConstraints { (make) in

@@ -33,7 +33,7 @@ class LocationCell: UITableViewCell {
         return label
     }()
     
-    lazy var stackView: UIStackView = {
+    private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, addressLabel])
         stackView.axis = .vertical
         stackView.distribution = .fillEqually

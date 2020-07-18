@@ -14,7 +14,7 @@ class AddEntryViewModel {
     var entryModel: EntryModel? {
         didSet {
             guard let entryModel = entryModel else {return}
-//            setupEntryModel(with: entryModel)
+            setupEntryModel(with: entryModel)
             didFinishLoadData?()
         }
     }
@@ -22,25 +22,25 @@ class AddEntryViewModel {
     var imagesData: [UIImage] = []
     var textStoryViewModel: String?
     var dateTextViewModel: String?
+    var addressViewModel: String?
     var didFinishLoadData: (() -> Void)?
     
-//    func saveEntry(entry: EntryModel) {
-//        RealmService.shared.create(entry, completion: {
-//            self.entryModel = entry
-//        })
-//    }
+    func saveEntry() {
+        RealmService.shared.create(entryModel ?? EntryModel())
+    }
     
-//    private func setupEntryModel(with entryModel: EntryModel) {
-//        DispatchQueue.main.async {
-//            self.textStoryViewModel = entryModel.text
-//            self.dateTextViewModel = entryModel.datePrettyString()
-//            self.
-//            for image in self.imagesData {
-//                let pictureModel = Picture(image: image)
-//                entryModel.pictures.append(pictureModel)
-//                pictureModel.entry = entryModel
-//            }
-//        }
-//    }
+    func setupEntryModel(with entryModel: EntryModel) {
+        DispatchQueue.main.async {
+            self.textStoryViewModel = entryModel.text
+            self.addressViewModel = entryModel.address
+            let imagesArr = self.imagesData
+            for image in imagesArr {
+                let pictureModel = Picture(image: image)
+                entryModel.pictures.append(pictureModel)
+                pictureModel.entry = entryModel
+            }
+//            RealmService.shared.create(entryModel)
+        }
+    }
 }
 

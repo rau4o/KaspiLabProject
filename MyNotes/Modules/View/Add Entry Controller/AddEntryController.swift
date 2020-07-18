@@ -15,8 +15,6 @@ class AddEntryController: UIViewController {
     
     var addEntryView = AddEntryView()
     var viewModel = AddEntryViewModel()
-    var isCallSetUP = true
-    var intSelected: Int?
     
     // MARK: - Life Cycle
 
@@ -84,34 +82,19 @@ class AddEntryController: UIViewController {
             guard let self = self else {return}
             self.present(self.addEntryView.imagePicker, animated: true, completion: nil)
         }
-        
-//        viewModel.didFinishLoadData = { [weak self] in
-//            guard let self = self else {return}
-//            self.viewModel.textStoryViewModel = self.addEntryView.entryTextView.text
-////            self.viewModel.dateTextViewModel = self.addEntryView.dateText
-//        }
-//        
-//        addEntryView.saveAction = { [weak self] in
-//            guard let self = self else { return }
-//            let entryModel = EntryModel()
-//
-//            entryModel.text = self.addEntryView.entryTextView.text
-//            let imagesArr = self.addEntryView.images
-//            for image in imagesArr {
-//                let pictureModel = Picture(image: image)
-//                entryModel.pictures.append(pictureModel)
-//                pictureModel.entry = entryModel
-//            }
-////            let model = Location(long: 2.1, lat: 22.2)
-////            entryModel.coordinates.append(model)
-////            model.entry = entryModel
-//            RealmService.shared.create(entryModel)
-//            self.dismiss(animated: true, completion: nil)
-//        }
     }
 }
 
 // MARK: - ConfigureUI
+
+extension AddEntryController: BottomSheetViewDelegate {
+    func heightDidChange(to y: CGFloat) {
+        print(y)
+    }
+    func shouldDismiss(sender: UIView) {
+        dismiss(animated: true, completion: nil)
+    }
+}
 
 private extension AddEntryController {
     

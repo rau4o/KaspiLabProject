@@ -59,15 +59,22 @@ class DetailEntryController: UIViewController {
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: startingYPos, width: screenSize.width, height: 50))
         let navItem = UINavigationItem(title: entryModel.datePrettyString())
         let backItem = UIBarButtonItem(barButtonSystemItem: .close, target: nil, action: #selector(backAction(_:)))
+        let deleteItem = UIBarButtonItem(barButtonSystemItem: .trash, target: nil, action: #selector(deleteEntry(_:)))
         navItem.leftBarButtonItem = backItem
+        navItem.rightBarButtonItem = deleteItem
         navBar.setItems([navItem], animated: false)
         self.view.addSubview(navBar)
     }
     
     // MARK: - Selectors
     
-    @objc func backAction(_ sender: UINavigationItem) {
+    @objc private func backAction(_ sender: UINavigationItem) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func deleteEntry(_ sender: UINavigationItem) {
+        RealmService.shared.delete(entryModel)
+        dismiss(animated: true, completion: nil)
     }
 }
 

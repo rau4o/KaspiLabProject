@@ -14,7 +14,7 @@ class MapController: UIViewController {
     
     // MARK: - Properties
     
-    var entries: Results<EntryModel>?
+    private var entries: Results<EntryModel>?
     
     lazy var mapView: MKMapView = {
         let map = MKMapView()

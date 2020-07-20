@@ -14,7 +14,7 @@ class CalendarController: UIViewController {
     
     // MARK: - Properties
     
-    var entries: Results<EntryModel>?
+    private(set) var entries: Results<EntryModel>?
     
     private lazy var calendarView: FSCalendar = {
         let calendar = FSCalendar()
@@ -64,16 +64,9 @@ extension CalendarController: FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
 
         let dateString = self.dateFormatter.string(from: date)
-        
         guard let dataArray = entries else {return 0}
-        for d in dataArray {
-
-            let date = d.datePrettyString()
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "MM-dd-yyyy"
-//            let dateFromString : NSDate = dateFormatter.date(from: date)! as NSDate
-//            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-//            let datenew = dateFormatter.string(from: dateFromString as Date)
+        for i in dataArray {
+            let date = i.datePrettyString()
             if dateString.contains(date) {
                 return 1
             }

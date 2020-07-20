@@ -9,10 +9,9 @@ target 'MyNotes' do
   pod 'RealmSwift'
   pod 'TransitionButton'
   pod 'AnchoredBottomSheet'
-  pod 'BmoViewPager', '~> 4.2.2'
   pod 'Toucan'
   pod "IQKeyboardManager"
-  pod 'SBDropDown'
+  pod "iOSDropDown"
   
 
 end

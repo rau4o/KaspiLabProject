@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double SBDropDownVersionNumber;
-FOUNDATION_EXPORT const unsigned char SBDropDownVersionString[];
+FOUNDATION_EXPORT double iOSDropDownVersionNumber;
+FOUNDATION_EXPORT const unsigned char iOSDropDownVersionString[];
 

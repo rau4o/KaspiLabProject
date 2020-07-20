@@ -162,25 +162,23 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AnchoredBottomSheet/AnchoredBottomSheet.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/BmoViewPager/BmoViewPager.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Realm/Realm.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SBDropDown/SBDropDown.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Toucan/Toucan.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AnchoredBottomSheet/AnchoredBottomSheet.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/BmoViewPager/BmoViewPager.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Realm/Realm.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SBDropDown/SBDropDown.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Toucan/Toucan.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

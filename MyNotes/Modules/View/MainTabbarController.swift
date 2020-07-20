@@ -18,11 +18,11 @@ class MainTabbarController: CustomTabbarController {
     private func configureControllers() {
         let tableController = TableNotesController()
         let collectionController = CollectionNotesController()
-//        let profileController = ProfileController()
+        let mapController = MapController()
         
         tableController.tabBarItem = UITabBarItem(title: "notes", image: UIImage(named: "menu"), tag: 0)
         collectionController.tabBarItem = UITabBarItem(title: "photos", image: UIImage(named: "collectionMenu"), tag: 1)
-//        profileController.tabBarItem = UITabBarItem(title: "profile", image: UIImage(named: "user"), tag: 3)
-        viewControllers = [tableController, collectionController]
+        mapController.tabBarItem = UITabBarItem(title: "map", image: UIImage(named: "map"), tag: 2)
+        viewControllers = [tableController, collectionController, mapController]
     }
 }

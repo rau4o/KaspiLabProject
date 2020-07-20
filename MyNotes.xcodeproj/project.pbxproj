@@ -50,6 +50,7 @@
 		AE7E68AD24A8C0A10076E280 /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E68AC24A8C0A10076E280 /* AddressTableViewCell.swift */; };
 		AE9303A8249CCC66001E4803 /* AddEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9303A7249CCC66001E4803 /* AddEntryView.swift */; };
 		AE9303AC249CD06A001E4803 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9303AB249CD06A001E4803 /* CalendarController.swift */; };
+		AEB319BC24C4670500478AE0 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB319BB24C4670500478AE0 /* MapController.swift */; };
 		AECA405424C340AB00AF6968 /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = AECA405324C340AB00AF6968 /* image1.png */; };
 		AECA405624C340B800AF6968 /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = AECA405524C340B800AF6968 /* image2.png */; };
 		AECA405824C340C000AF6968 /* image3.png in Resources */ = {isa = PBXBuildFile; fileRef = AECA405724C340C000AF6968 /* image3.png */; };
@@ -115,6 +116,7 @@
 		AE7E68AC24A8C0A10076E280 /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
 		AE9303A7249CCC66001E4803 /* AddEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryView.swift; sourceTree = "<group>"; };
 		AE9303AB249CD06A001E4803 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
+		AEB319BB24C4670500478AE0 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		AECA405324C340AB00AF6968 /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
 		AECA405524C340B800AF6968 /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
 		AECA405724C340C000AF6968 /* image3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image3.png; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				AE9303AB249CD06A001E4803 /* CalendarController.swift */,
+				AEB319BB24C4670500478AE0 /* MapController.swift */,
 			);
 			path = "Calendar Controller";
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				AE9303A8249CCC66001E4803 /* AddEntryView.swift in Sources */,
 				AE0814E5249BDC9700E3DF57 /* CustomTabbarItem.swift in Sources */,
 				AEE312F8249A8B2800804DAB /* RealmService.swift in Sources */,
+				AEB319BC24C4670500478AE0 /* MapController.swift in Sources */,
 				AEE31300249A923000804DAB /* AddEntryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

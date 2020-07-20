@@ -15,13 +15,14 @@ class AddEntryController: UIViewController {
     
     var addEntryView = AddEntryView()
     var viewModel = AddEntryViewModel()
+    var isCallSetUP = true
     
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        addEntryView.dateTextField.delegate = self
+//        addEntryView.dateTextField.delegate = self
         initialSetup()
         activateClosure()
         setNavigationBar()
@@ -87,14 +88,14 @@ class AddEntryController: UIViewController {
 
 // MARK: - ConfigureUI
 
-extension AddEntryController: BottomSheetViewDelegate {
-    func heightDidChange(to y: CGFloat) {
-        print(y)
-    }
-    func shouldDismiss(sender: UIView) {
-        dismiss(animated: true, completion: nil)
-    }
-}
+//extension AddEntryController: BottomSheetViewDelegate {
+//    func heightDidChange(to y: CGFloat) {
+//        print(y)
+//    }
+//    func shouldDismiss(sender: UIView) {
+//        dismiss(animated: true, completion: nil)
+//    }
+//}
 
 private extension AddEntryController {
     

@@ -19,10 +19,12 @@ class MainTabbarController: CustomTabbarController {
         let tableController = TableNotesController()
         let collectionController = CollectionNotesController()
         let mapController = MapController()
+        let calendarController = CalendarController()
         
         tableController.tabBarItem = UITabBarItem(title: "notes", image: UIImage(named: "menu"), tag: 0)
         collectionController.tabBarItem = UITabBarItem(title: "photos", image: UIImage(named: "collectionMenu"), tag: 1)
         mapController.tabBarItem = UITabBarItem(title: "map", image: UIImage(named: "map"), tag: 2)
-        viewControllers = [tableController, collectionController, mapController]
+        calendarController.tabBarItem = UITabBarItem(title: "calendar", image: UIImage(named: "calendar"), tag: 3)
+        viewControllers = [tableController, collectionController, mapController, calendarController]
     }
 }

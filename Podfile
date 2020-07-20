@@ -11,7 +11,7 @@ target 'MyNotes' do
   pod 'AnchoredBottomSheet'
   pod 'Toucan'
   pod "IQKeyboardManager"
-  pod "iOSDropDown"
+  pod 'FSCalendar'
   
 
 end

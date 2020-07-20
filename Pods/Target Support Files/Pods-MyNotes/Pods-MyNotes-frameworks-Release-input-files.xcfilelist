@@ -1,9 +1,9 @@
 ${PODS_ROOT}/Target Support Files/Pods-MyNotes/Pods-MyNotes-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/AnchoredBottomSheet/AnchoredBottomSheet.framework
+${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework
 ${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework
 ${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
 ${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/Toucan/Toucan.framework
 ${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework
-${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework

@@ -1,7 +1,7 @@
 PODS:
   - AnchoredBottomSheet (0.3.0):
     - SnapKit (~> 5.0)
-  - iOSDropDown (0.3.4)
+  - FSCalendar (2.8.1)
   - IQKeyboardManager (6.5.5)
   - Realm (4.4.1):
     - Realm/Headers (= 4.4.1)
@@ -14,7 +14,7 @@ PODS:
 
 DEPENDENCIES:
   - AnchoredBottomSheet
-  - iOSDropDown
+  - FSCalendar
   - IQKeyboardManager
   - RealmSwift
   - Toucan
@@ -23,7 +23,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AnchoredBottomSheet
-    - iOSDropDown
+    - FSCalendar
     - IQKeyboardManager
     - Realm
     - RealmSwift
@@ -33,7 +33,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AnchoredBottomSheet: 847a5500df14f138ed0734223cd2faad98750ef8
-  iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
+  FSCalendar: 5245140456fcbcac5824c203b98bd8068bdfee1a
   IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
   Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
   RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
@@ -41,6 +41,6 @@ SPEC CHECKSUMS:
   Toucan: 8f228fabb21521b9658692df9325fe76e71d74b2
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
 
-PODFILE CHECKSUM: 76b89bc57a39a85a8b08e72c053a7a92df24ab51
+PODFILE CHECKSUM: 2f3c3574f9a84ea0aa0482bc7f0463a1a1637d4c
 
 COCOAPODS: 1.8.4

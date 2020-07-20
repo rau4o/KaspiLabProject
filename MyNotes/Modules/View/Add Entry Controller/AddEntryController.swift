@@ -22,7 +22,6 @@ class AddEntryController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-//        addEntryView.dateTextField.delegate = self
         initialSetup()
         activateClosure()
         setNavigationBar()
@@ -87,15 +86,6 @@ class AddEntryController: UIViewController {
 }
 
 // MARK: - ConfigureUI
-
-//extension AddEntryController: BottomSheetViewDelegate {
-//    func heightDidChange(to y: CGFloat) {
-//        print(y)
-//    }
-//    func shouldDismiss(sender: UIView) {
-//        dismiss(animated: true, completion: nil)
-//    }
-//}
 
 private extension AddEntryController {
     

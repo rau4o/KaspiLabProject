@@ -9,7 +9,6 @@
 import UIKit
 import Photos
 import MapKit
-import iOSDropDown
 
 private let cellId = "cell"
 
@@ -26,13 +25,6 @@ class AddEntryView: BaseView {
     var images: [UIImage] = []
     var placemarks: [MKPlacemark] = []
     var startWithCamera = false
-    
-    lazy var dropDownMenu: DropDown = {
-        let menu = DropDown()
-        menu.backgroundColor = .red
-        menu.arrowSize = 10
-        return menu
-    }()
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -118,21 +110,6 @@ class AddEntryView: BaseView {
             completion(results)
         }
     }
-    
-//    func activateDropDown() {
-//        DispatchQueue.global(qos: .utility).async {
-//            self.dropDownMenu.didSelect { [weak self] (text, index, id) in
-//                guard let self = self else {return}
-//                self.searchBy(naturalLanguageQuery: text) { [weak self] (results) in
-//                    guard let self = self else {return}
-//                    self.placemarks = results
-//                    self.dropDownMenu.optionArray = self.placemarks.map {
-//                        String($0.title ?? "")
-//                    }
-//                }
-//            }
-//        }
-//    }
     
     // MARK: - Selectors
     

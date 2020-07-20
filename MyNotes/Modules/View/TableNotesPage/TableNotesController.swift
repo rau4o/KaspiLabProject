@@ -130,7 +130,6 @@ extension TableNotesController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell: TableNotesViewCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? TableNotesViewCell {
             cell.selectionStyle = .none
-//            cell.layer.cornerRadius = 15
             cell.addShadow()
             let entryModel = viewModel.getData(at: indexPath.row)
             cell.configureCell(entryModel: entryModel)
